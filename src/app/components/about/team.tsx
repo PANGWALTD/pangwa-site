@@ -27,8 +27,9 @@ function Team() {
                         <Image 
                             src="/lady.png" 
                             preview={false} 
-                            className="w-36 h-36 rounded-full object-cover" 
+                            className="h-36 rounded-full object-cover" 
                             alt="Queenie Taylor Wong"
+                            width={200}
                         />
                         <p className="font-bold text-xl mt-6 text-gray-800">Queenie Taylor Wong</p>
                         <span className="mt-2 text-sm text-gray-500">Co-founder and Board Chair</span>
@@ -54,7 +55,8 @@ function Team() {
                             src="/gentleman1.jpeg" 
                             preview={false} 
                             className="w-36 h-36 rounded-full object-cover"
-                            alt="Wesley Onyango Ogada" 
+                            alt="Wesley Onyango Ogada"
+                            width={200} 
                         />
                         <p className="font-bold text-xl mt-6 text-gray-800">Wesley Onyango Ogada</p>
                         <span className="mt-2 text-sm text-gray-500">CEO & Co-Founder</span>
