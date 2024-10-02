@@ -25,7 +25,7 @@ function Testimonials() {
               key={index}
               className="bg-white shadow-lg rounded-lg p-8 transition-transform transform hover:scale-105 hover:shadow-2xl"
             >
-              <p className="text-lg italic text-gray-600 mb-4">"{testimonial.quote}"</p>
+              <p className="text-lg italic text-gray-600 mb-4">&#34;{testimonial.quote}&#34;</p>
               <div className="flex items-center justify-center space-x-4">
                 <div className="text-left">
                   <p className="font-semibold text-xl text-gray-800">

@@ -1,13 +1,7 @@
 "use client"
 import { Image, Carousel } from "antd";
 function Home() {
-    const contentStyle = {
-        textAlign: 'center',
-        height: '400px',
-        lineHeight: '400px',
-        background: '#364d79',
-        color: '#fff',
-    }
+    
     return (<div>
         <div>
             <Carousel autoplay>

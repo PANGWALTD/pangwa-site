@@ -13,15 +13,15 @@ function Footer() {
     message: "",
   });
 
-  const handleInputChange = (e) => {
+const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {   
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+};
 
-  const handleSubmit = (e) => {
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission (send the formData somewhere)
     console.log(formData);
-  };
+};
 
   return (
     <div className="bg-gray-900 text-gray-300 py-12 px-3">
