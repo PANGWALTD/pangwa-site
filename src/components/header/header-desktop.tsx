@@ -8,14 +8,14 @@ function HeaderDesktop() {
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            setIsScrolled(window.scrollY > 5);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     return (
-        <div className={`fixed w-full top-0 left-0 z-50 transition-all duration-500 ease-in-out  ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'} text-black`}>
+        <div className={`fixed w-full top-0 left-0 z-50 transition-all duration-500 ease-in-out  ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'} text-emerald-800`}>
             <div className="container mx-auto flex justify-between items-center py-4 px-8">
                 {/* Logo */}
                 <div className="logo ml-4">
