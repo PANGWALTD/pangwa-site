@@ -1,17 +1,14 @@
-import Header from "./components/header/header";
-import Footer from "./components/footer/footer";
-import Body from "./components/home/home";
-import Services from "./components/services/services";
-import AboutUs from "./components/about/about";
-import WhyChooseUs from "./components/about/why-us";
-import Team from "./components/about/team";
-import Testimonials from "./components/about/testimonials";
-
+import Footer from "@/components/footer/footer";
+import Body from "@/components/home/home";
+import Services from "@/components/services/services";
+import WhyChooseUs from "@/components/about/why-us";
+import Team from "@/components/about/team";
+import Testimonials from "@/components/about/testimonials";
+import AboutUs from "@/components/about/about";
 export default function Home() {
     return (
         <div className="font-[family-name:var(--font-geist-sans)]">
             {/* Header */}
-            <Header />
 
             {/* Body Section */}
             <div id="home">
