@@ -1,5 +1,4 @@
 import { Image } from "antd";
-import { IoMdMenu } from "react-icons/io";
 import Link from 'next/link';  // Import Next.js Link component
 import { useState, useEffect } from "react";
 
@@ -20,6 +19,7 @@ function HeaderDesktop() {
                 {/* Logo */}
                 <div className="logo ml-4">
                     <Image
+                    preview={false}
                         width={60}
                         src="./logo-main-bg.png"
                         alt="Logo"
