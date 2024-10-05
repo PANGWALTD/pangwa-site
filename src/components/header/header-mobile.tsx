@@ -40,26 +40,26 @@ function HeaderMobile() {
                 <div className="absolute top-full left-0 mt-2 p-6 bg-white shadow-lg text-black z-10 w-full transition-all duration-500 ease-in-out">
                     <ul className="font-semibold grid grid-cols-1 gap-4">
                         <li>
-                            <Link href="/#home" className="hover:text-blue-600 transition-colors duration-300 text-[#070880]" onClick={toggleMenu}>
+                            <Link href="/#home" className="hover:text-[#df8c00] transition-colors duration-300 text-[#070880]" onClick={toggleMenu}>
                                 Home
                             </Link>
                         </li>
                         <li>
-                            <Link href="/#about-us" className="hover:text-blue-600 transition-colors duration-300 text-[#070880]" onClick={toggleMenu}>
+                            <Link href="/#about-us" className="hover:text-[#df8c00] transition-colors duration-300 text-[#070880]" onClick={toggleMenu}>
                                 About Us
                             </Link>
                         </li>
                         <li>
-                            <Link href="/#services" className="hover:text-blue-600 transition-colors duration-300 text-[#070880]" onClick={toggleMenu}>
+                            <Link href="/#services" className="hover:text-[#df8c00] transition-colors duration-300 text-[#070880]" onClick={toggleMenu}>
                                 Our Services
                             </Link>
                         </li>
                         
                         <Link href="/blogs">
-                            <p className="hover:text-blue-600 transition-colors duration-300 text-[#070880]">Blogs</p>
+                            <p className="hover:text-[#df8c00] transition-colors duration-300 text-[#070880]">Blogs</p>
                         </Link>
                         <li>
-                            <Link href="/#contact" className="hover:text-blue-600 transition-colors duration-300 text-[#070880]" onClick={toggleMenu}>
+                            <Link href="/#contact" className="hover:text-[#df8c00] transition-colors duration-300 text-[#070880]" onClick={toggleMenu}>
                                 Contact Us
                             </Link>
                         </li>
