@@ -12,7 +12,7 @@ function Services() {
         {/* Service Item */}
         <div className=" md:flex-row items-center bg-white shadow-lg rounded-lg overflow-hidden transition-transform hover:scale-105">
           <Image preview={false}
-            src="./growth.jpg"
+            src="./port2.jpeg"
             width="100%"
             className="w-full md:w-auto rounded-md object-cover"
             alt="Trade Finance Solutions"
@@ -55,7 +55,7 @@ function Services() {
           />
           <div className="p-4">
             <p className="font-bold text-lg md:text-xl mb-2 text-gray-900">
-              Business Advisory
+              Business Advisory & Consultancy
             </p>
             <span className="text-gray-600">
               Our team of experienced consultants provides advice on business model & strategy, financial management, credit and risk management, capital raising strategies, and growth planning.
@@ -63,59 +63,11 @@ function Services() {
           </div>
         </div>
 
-        {/* Service Item */}
-        <div className=" md:flex-row items-center bg-white shadow-lg rounded-lg overflow-hidden transition-transform hover:scale-105">
-          <Image preview={false}
-            src="./bank-investent.jpg"
-            width="100%"
-            className="w-full md:w-auto rounded-md object-cover"
-            alt="Funding Fairs"
-          />
-          <div className="p-4">
-            <p className="font-bold text-lg md:text-xl mb-2 text-gray-900">
-              Funding Fairs
-            </p>
-            <span className="text-gray-600">
-              PANGWA works with various financial institutions to organize funding fairs, providing opportunities for businesses to secure funding.
-            </span>
-          </div>
-        </div>
+      
 
-        {/* Service Item */}
-        <div className=" md:flex-row items-center bg-white shadow-lg rounded-lg overflow-hidden transition-transform hover:scale-105">
-          <Image preview={false}
-            src="./business-partnerships.jpg"
-            width="100%"
-            className="w-full md:w-auto rounded-md object-cover"
-            alt="Broking Services"
-          />
-          <div className="p-4">
-            <p className="font-bold text-lg md:text-xl mb-2 text-gray-900">
-              Broking Services
-            </p>
-            <span className="text-gray-600">
-              We facilitate partnerships between local and international financial service providers and businesses, offering services like deal origination and due diligence.
-            </span>
-          </div>
-        </div>
+      
 
-        {/* Service Item */}
-        <div className=" md:flex-row items-center bg-white shadow-lg rounded-lg overflow-hidden transition-transform hover:scale-105">
-          <Image preview={false}
-            src="./business-workshop.jpg"
-            width="100%"
-            className="w-full md:w-auto rounded-md object-cover"
-            alt="Associated Services"
-          />
-          <div className="p-4">
-            <p className="font-bold text-lg md:text-xl mb-2 text-gray-900">
-              Associated Services
-            </p>
-            <span className="text-gray-600">
-              PANGWA offers workshops, seminars, and networking events that help businesses improve operations and gain knowledge.
-            </span>
-          </div>
-        </div>
+       
       </div>
     </div>
   );
