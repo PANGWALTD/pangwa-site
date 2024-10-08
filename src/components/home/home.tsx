@@ -50,7 +50,7 @@ function Home() {
               0
             )}`}
           >
-            <h1 className="text-4xl font-bold mb-2">Business Loans</h1>
+            <h1 className="text-6xl font-bold mb-2">Business Loans</h1>
           </div>
         </div>
         <div className="relative max-h-[600px]">
@@ -67,7 +67,7 @@ function Home() {
               1
             )}`}
           >
-            <h1 className="text-4xl font-bold mb-2">
+            <h1 className="text-6xl font-bold mb-2">
               Trade Finance Solutions
             </h1>
           </div>
@@ -86,7 +86,7 @@ function Home() {
               2
             )}`}
           >
-            <h1 className="text-4xl font-bold mb-2">
+            <h1 className="text-6xl font-bold mb-2">
               Business Advisory & Consultancy
             </h1>
           </div>

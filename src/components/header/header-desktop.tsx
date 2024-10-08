@@ -14,14 +14,14 @@ function HeaderDesktop() {
     }, []);
 
     return (
-        <div className={` text-emerald-800`}>
+        <div className={` text-emerald-800 shadow-sm`}>
             <div className="container mx-auto flex justify-between items-center px-8">
                 {/* Logo */}
                 <div className="logo ml-4">
                     <Image
                     preview={false}
                         width={150}
-                        src="./logo2.jpeg"
+                        src="./newest-logo.png"
                         alt="Logo"
                         className="transition-transform duration-300 ease-in-out transform hover:scale-105"
                     />

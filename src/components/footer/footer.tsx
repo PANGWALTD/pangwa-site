@@ -1,15 +1,17 @@
 "use client";
-import { FaPhone, FaEnvelope, FaFacebookF, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaFacebookF, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { useState } from "react";
 import Link from "next/link";
+import axios from "axios";
+import { toast } from "sonner";
 
 function Footer() {
     const [formData, setFormData] = useState({
         fullName: "",
         email: "",
         businessName: "",
-        inquiryType: "Inquiry",
+        inquiryType: "Advisory",
         message: "",
     });
 
@@ -19,10 +21,26 @@ function Footer() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // Handle form submission (send the formData somewhere)
-        console.log(formData);
+        if (formData.inquiryType === "Business Loan" && !uploadedFile) {
+            toast.error("Please upload the completed form before submitting a loan inquiry.");
+            return;
+
+        }
+        if (formData.inquiryType === "Business Loan" && uploadedFile) {
+            await submitContactForm(formData, uploadedFile);
+
+            toast.success("Form submitted successfully. We will get back to you shortly.");
+        }
+        if (formData.inquiryType === "Inquiry" || formData.inquiryType === "Advisory") {
+            console.log("Form data:", formData);
+            await submitContactForm(formData);
+
+            toast.success("Form submitted successfully. We will get back to you shortly.");
+        }
+
     };
     async function submitContactForm(formData:
         {
@@ -31,7 +49,7 @@ function Footer() {
             businessName: string,
             inquiryType: string,
             message: string
-        }, uploadedFile: File) {
+        }, uploadedFile?: File) {
         try {
             // Create a new FormData object
             const data = new FormData();
@@ -49,16 +67,14 @@ function Footer() {
             }
 
             // Send a POST request to the /api/contact endpoint
-            const response = await fetch("/api/contact", {
-                method: "POST",
-                body: data,
-            });
+
+            const response = await axios.post("/api/messages", data);
 
             // Parse the JSON response
-            const result = await response.json();
+            const result = await response.data;
 
             // Handle success or failure
-            if (response.ok && result.status === "success") {
+            if (response.status === 200) {
                 console.log("Form submitted successfully:", result);
                 return { success: true, data: result };
             } else {
@@ -92,7 +108,7 @@ function Footer() {
                     </p>
                     <div className="flex items-center mb-4">
                         <FaPhone className="text-white mr-3" />
-                        <p>+254 123 456 789</p>
+                        <p>+254 104 686041</p>
                     </div>
                     <div className="flex items-center mb-4">
                         <FaEnvelope className="text-white mr-3" />
@@ -102,7 +118,7 @@ function Footer() {
                         <Link href="">
                             <FaFacebookF className="text-white cursor-pointer hover:text-gray-400" />
                         </Link>
-                        <Link href="">
+                        <Link href="https://x.com/PangwaCapital">
                             <FaXTwitter className="text-white cursor-pointer hover:text-gray-400" />
                         </Link>
                         <Link href="">
@@ -151,12 +167,13 @@ function Footer() {
                             className="w-full p-3 bg-gray-800 text-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                         >
                             <option value="Inquiry">Inquiry</option>
-                            <option value="Loan">Loan</option>
+                            <option value="Business Loan">Business Loan</option>
+                            <option value="Advisory">Advisory & Consultancy</option>
 
                             {/* Add more options if needed */}
                         </select>
                         {/* Download and Upload Section */}
-                        {formData.inquiryType === "Loan" && (
+                        {formData.inquiryType === "Business Loan" && (
                             <div className="mt-10 container mx-auto">
                                 {/* Download Section */}
                                 <div className="mb-6">
@@ -164,7 +181,7 @@ function Footer() {
                                     <a
                                         href="./templates.pdf"
                                         download
-                                        className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+                                        className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
                                     >
                                         Download Application Form
                                     </a>
@@ -196,7 +213,7 @@ function Footer() {
                         ></textarea>
                         <button
                             type="submit"
-                            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white p-3 rounded-lg transition"
+                            className="w-full bg-indigo-400 hover:bg-indigo-700 text-white p-3 rounded-lg transition"
                         >
                             Send Message
                         </button>
@@ -206,11 +223,18 @@ function Footer() {
 
 
 
-            <div className="border-t border-gray-700 mt-12">
-                <p className="text-center py-4 text-gray-500">
+            <div className="border-t border-gray-700 mt-12 flex sm:flex-row flex-col justify-between  items-center py-4">
+                <p className="text-center text-gray-500 pb-4">
                     Copyright © 2024 Pangwa Capital. All Rights Reserved.
                 </p>
+                <Link href="https://web.whatsapp.com/send/?phone=254104686041&text" target="_blank" rel="noopener noreferrer">
+                    <div className="flex space-x-2 md:w-56 bg-green-500 text-white rounded-lg px-4 py-2 justify-center items-center hover:bg-green-600 transition duration-300 ease-in-out cursor-pointer">
+                        <FaWhatsapp className="text-xl" />
+                        <p className="text-sm">Chat on Whatsapp</p>
+                    </div>
+                </Link>
             </div>
+
         </div>
     );
 }

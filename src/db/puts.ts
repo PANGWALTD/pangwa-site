@@ -1,14 +1,28 @@
 import { db } from "./firebase";
 import { collection, addDoc, setDoc, doc, updateDoc } from "firebase/firestore";
-export async function addMessage(fullName: string, email: string, businessName: string, inquiryType: string, message: string, fileUrl?: string){
+export async function addMessage(fullName: string, email: string, businessName: string, inquiryType: string, message: string, fileUrl?: string) {
     try {
+        if (fileUrl) {
+            const docRef = await addDoc(collection(db, "messages"), {
+                fullName,
+                email,
+                businessName,
+                inquiryType,
+                message,
+                fileUrl,
+                status: "PENDING",
+                timestamp: new Date(),
+            });
+            console.log("Document written with ID: ", docRef.id);
+            return docRef.id;
+        }
+
         const docRef = await addDoc(collection(db, "messages"), {
             fullName,
             email,
             businessName,
             inquiryType,
             message,
-            fileUrl,
             status: "PENDING",
             timestamp: new Date(),
         });
@@ -19,7 +33,7 @@ export async function addMessage(fullName: string, email: string, businessName: 
         return null;
     }
 }
-export async function updateStatus(id: string){
+export async function updateStatus(id: string) {
     try {
         const docRef = doc(db, "messages", id);
         await updateDoc(docRef, {

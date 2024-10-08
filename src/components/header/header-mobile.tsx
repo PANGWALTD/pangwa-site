@@ -15,7 +15,7 @@ function HeaderMobile() {
             <div className="ml-2">
                 <Image preview={false}
                     width={100}
-                    src="./file.png"
+                    src="./newest-logo.png"
                     alt="Logo"
                     className="transition-transform duration-300 ease-in-out transform hover:scale-105"
                 />

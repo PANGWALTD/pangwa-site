@@ -11,10 +11,6 @@ function AboutUs() {
                 <span className="mt-2 text-gray-600">
                     To empower businesses by providing innovative financial solutions, expert advisory.
                 </span>
-                <p className="font-semibold text-lg mt-4">Our Vision</p>
-                <span className="mt-2 text-gray-600">
-                    To be the leading financial partner for businesses across East Africa.
-                </span>
             </div>
 
 
@@ -33,10 +29,10 @@ function AboutUs() {
                 <Image preview={false} src="./values2.png" width={100} alt="" />
                 <p className="font-bold text-xl mt-4 text-gray-800">Our Values</p>
                 <ol className="mt-4 text-gray-600 space-y-2 text-lg">
-                    <li className="hover:text-blue-500 transition-colors">Transparency</li>
+                    <li className="hover:text-blue-500 transition-colors">Impact-Driven</li>
+
                     <li className="hover:text-blue-500 transition-colors">Customer-Centricity</li>
                     <li className="hover:text-blue-500 transition-colors">Collaboration</li>
-                    <li className="hover:text-blue-500 transition-colors">Impact-Driven</li>
                 </ol>
             </div>
 
