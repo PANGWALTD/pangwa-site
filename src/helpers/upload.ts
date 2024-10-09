@@ -26,7 +26,7 @@ export async function uploadFile(file: File) {
             resolve(publicUrl);
             });
 
-            blobStream.end(file.buffer);
+            // blobStream.end(file.buffer);
         });
     } catch (e) {
         console.error("Error uploading file: ", e);

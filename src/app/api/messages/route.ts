@@ -21,7 +21,7 @@ export async function POST(req: Request) {
             if (!fileUrl) {
                 return NextResponse.json({ status: 400, error: "Error uploading file" });
             }
-            const result = await addMessage(fullName, email, businessName, inquiryType, message, fileUrl);
+            const result = await addMessage(fullName, email, businessName, inquiryType, message, "fileUrl");
             return NextResponse.json({ status: 200, data: result });
         }
         const result = await addMessage(fullName, email, businessName, inquiryType, message);
