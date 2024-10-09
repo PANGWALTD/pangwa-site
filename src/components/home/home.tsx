@@ -37,7 +37,7 @@ function Home() {
                 beforeChange={(current, next) => setCurrentSlide(next)} // Track slide change
             >
 
-                <div className="relative max-h-[700px]">
+                {/* <div className="relative max-h-[700px]">
                     <Image
                         preview={false}
                         width="100%"
@@ -52,7 +52,7 @@ function Home() {
                         )}`}
                     >
                     </div>
-                </div>
+                </div> */}
 
 
 

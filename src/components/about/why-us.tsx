@@ -74,29 +74,32 @@ function WhyChooseUs() {
                             </li>
                         </ul>
                     </span>
-                    <div className="flex flex-col md:flex-row items-center justify-center bg-gray-100 p-8 md:p-12">
+                    <div className="flex flex-col md:flex-row items-center justify-center bg-gray-100 p-8 md:p-12 rounded-lg shadow-md">
                         {/* Image section */}
-                        <div className="md:w-1/2 flex justify-center md:justify-end mb-6 md:mb-0">
+                      
                             <Image
                                 src="./headshot.jpeg" // Replace with actual image source
                                 alt="Wesley Onyango"
-                                className="rounded-sm shadow-lg w-auto max-w-[200px] md:max-w-[200px]" // Auto width and height, limit max width for responsiveness
+                                className="rounded-md shadow-lg w-auto max-w-[200px] md:max-w-[200px]" // Rounded image with shadow effect
                                 preview={false}
                             />
-                        </div>
+                        
 
                         {/* Quote section */}
-                        <div className="sm:ml-5 md:w-1/2 text-left md:text-left">
-                            <p className="text-lg italic text-gray-700 mb-4 text-left">
+                        <div className="sm:ml-5 md:w-1/2 text-center">
+                            <p className="text-lg  md:text-xl  italic text-gray-700 leading-relaxed mb-4">
                                 &#34;At PANGWA, we believe that empowering micro and small businesses with
                                 accessible financial solutions is the cornerstone of sustainable
                                 economic growth in East Africa. By bridging financial gaps, we are not
                                 just supporting businesses; we are nurturing the future of our
                                 communities.&#34;
                             </p>
-                            <p className="font-bold text-gray-900">Wesley Onyango, Co-founder & CEO</p>
+                            <p className="font-bold text-gray-900 text-lg md:text-xl">
+                                Wesley Onyango, Co-founder & CEO
+                            </p>
                         </div>
                     </div>
+
 
 
 
