@@ -32,7 +32,7 @@ function Footer() {
         if (formData.inquiryType === "Business Loan" && uploadedFile) {
             await submitContactForm(formData, uploadedFile);
 
-            toast.success("Form submitted successfully. We will get back to you shortly.");
+
         }
         if (formData.inquiryType === "Inquiry" || formData.inquiryType === "Advisory") {
             console.log("Form data:", formData);
@@ -76,13 +76,16 @@ function Footer() {
             // Handle success or failure
             if (response.status === 200) {
                 console.log("Form submitted successfully:", result);
+                toast.success("Form submitted successfully. We will get back to you shortly.");
                 return { success: true, data: result };
             } else {
                 console.error("Form submission failed:", result.error);
+                toast.error("Failed to submit the form. Please try again later.");
                 return { success: false, error: result.error || "Unknown error occurred" };
             }
         } catch (error) {
             console.error("Error submitting the form:", error);
+            toast.success("Form submitted successfully. We will get back to you shortly.");
             return { success: false, error: error || "Network error" };
         }
     }
@@ -179,7 +182,7 @@ function Footer() {
                                 <div className="mb-6">
                                     <h4 className="text-xl font-bold text-white mb-2">Download Form</h4>
                                     <a
-                                        href="./templates.pdf"
+                                        href="./PANGWA CAPITAL LIMITED - BUSINESS LOAN APPLICATION, AGREEMENT, AND PERSONAL GUARANTEE FORMS.pdf"
                                         download
                                         className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
                                     >

@@ -2,6 +2,7 @@
 import { Image, Carousel } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { useState } from "react";
+import HomePage from "./homepage";
 
 function Home() {
     // State to track the current slide index (for text animations)
@@ -36,73 +37,68 @@ function Home() {
                 nextArrow={<NextArrow className={undefined} onClick={undefined} />}
                 beforeChange={(current, next) => setCurrentSlide(next)} // Track slide change
             >
-
-                <div className="relative max-h-[700px]">
-                    <Image
-                        preview={false}
-                        width="100%"
-                        src="./home.jpg"
-                        height={700}
-                        alt="Image 1"
-                        style={{ objectFit: "cover" }}
-                    />
+                <div className="relative min-h-[500px] md:h-auto h-[75vh] max-h-[600px]">
+                    <HomePage />
                     <div
                         className={`absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white transition-all duration-500 ease-in-out ${animationClass(
                             0
                         )}`}
                     >
+                        {/* <h1 className="md:text-6xl font-bold mb-2 text-4xl text-center">Business Loans</h1> */}
                     </div>
                 </div>
 
-
-
-                <div className="relative max-h-[600px]">
+                <div className="relative min-h-[500px] md:h-auto h-[75vh] max-h-[600px]">
                     <Image
                         preview={false}
                         width="100%"
                         src="./colleagues-team.jpg"
                         alt="Image 1"
                         style={{ objectFit: "cover" }}
+                        className="min-h-[500px] md:h-auto h-[75vh] max-h-[600px]"
                     />
                     <div
                         className={`absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white transition-all duration-500 ease-in-out ${animationClass(
-                            0
-                        )}`}
+                            1
+                        )}`} 
                     >
                         <h1 className="md:text-6xl font-bold mb-2 text-4xl text-center">Business Loans</h1>
                     </div>
                 </div>
-                <div className="relative max-h-[600px]">
+
+                <div className="relative md:h-auto min-h-[500px] h-[75vh] max-h-[600px] ">
                     <Image
                         preview={false}
                         width="100%"
                         src="./port1.jpg"
                         alt="Image 2"
                         style={{ objectFit: "cover" }}
+                        className="min-h-[500px] md:h-auto h-[75vh] max-h-[600px]"
                     />
                     <div
                         className={`absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white transition-all duration-500 ease-in-out ${animationClass(
-                            1
-                        )}`}
+                            2
+                        )}`} 
                     >
                         <h1 className="md:text-6xl text-4xl font-bold mb-2 text-center">
                             Trade Finance Solutions
                         </h1>
                     </div>
                 </div>
-                <div className="relative max-h-[600px]">
+
+                <div className="relative  md:h-auto min-h-[500px] h-[75vh] max-h-[600px]">
                     <Image
                         preview={false}
                         width="100%"
-                        src="./team-business-people-collaborating.avif"
+                        src="./team-business-people-collaborating.jpg"
                         alt="Image 3"
-                      
                         style={{ objectFit: "cover" }}
+                        className=" min-h-[500px] md:h-auto h-[75vh] max-h-[600px] "
                     />
                     <div
                         className={`absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white transition-all duration-500 ease-in-out ${animationClass(
-                            2
-                        )}`}
+                            3
+                        )}`} 
                     >
                         <h1 className="md:text-6xl text-4xl font-bold mb-2 text-center mt-5">
                             Business Advisory & Consultancy
@@ -113,21 +109,21 @@ function Home() {
 
             {/* Additional CSS for text animation */}
             <style jsx>{`
-        @keyframes fadeInUp {
-          0% {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
+                @keyframes fadeInUp {
+                    0% {
+                        opacity: 0;
+                        transform: translateY(30px);
+                    }
+                    100% {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
 
-        .animate-fadeInUp {
-          animation: fadeInUp 1s ease forwards;
-        }
-      `}</style>
+                .animate-fadeInUp {
+                    animation: fadeInUp 1s ease forwards;
+                }
+            `}</style>
         </div>
     );
 }

@@ -92,10 +92,10 @@ function Page() {
         <div className="p-6 text-black">
             <h1 className="text-2xl font-bold mb-6 text-center">Admin Manager Page</h1>
             <p className="text-lg mb-4 text-center">Manage your admin settings and handle messages here</p>
-            
+
             {/* Display PENDING Messages */}
             <h2 className="text-xl font-semibold mb-4">Pending Messages</h2>
-            <div className="space-y-6">  
+            <div className="space-y-6">
                 {currentPendingMessages.length > 0 ? (
                     currentPendingMessages.map((msg) => (
                         <Card
@@ -125,7 +125,7 @@ function Page() {
                         <Card
                             key={msg.id}
                             message={msg}
-                            onHandle={() => {}}
+                            onHandle={() => { }}
                         />
                     ))
                 ) : (
@@ -170,6 +170,46 @@ const Card: React.FC<CardProps> = ({ message, onHandle }) => {
         return 'Invalid date';
     };
 
+    // Helper function to download the PDF file
+    const handleDownload = (fileUrl: string | undefined, fileName: string) => {
+        if (!fileUrl) return;
+    
+        // Check if the fileUrl contains a base64 prefix and handle it accordingly
+        const base64Prefix = "data:application/pdf;base64,";
+        let base64Data: string;
+    
+        if (fileUrl.startsWith(base64Prefix)) {
+            base64Data = fileUrl.split(',')[1]; // Extract base64 string after the comma
+        } else {
+            base64Data = fileUrl; // If no prefix, treat it as raw base64 string
+        }
+    
+        try {
+            // Decode base64 string
+            const byteCharacters = atob(base64Data);
+            const byteNumbers = new Array(byteCharacters.length);
+            for (let i = 0; i < byteCharacters.length; i++) {
+                byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            const byteArray = new Uint8Array(byteNumbers);
+    
+            // Create a blob and trigger download
+            const blob = new Blob([byteArray], { type: 'application/pdf' });
+            const link = document.createElement('a');
+            const blobUrl = URL.createObjectURL(blob);
+            link.href = blobUrl;
+            link.setAttribute('download', fileName); // Set the download file name
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link); // Clean up
+            URL.revokeObjectURL(blobUrl); // Revoke the object URL
+        } catch (error) {
+            console.error("Error decoding base64 string:", error);
+            alert("Failed to download the PDF file.");
+        }
+    };
+    
+
     return (
         <div className={`shadow-lg p-4 rounded-lg ${message.status === 'DONE' ? 'bg-green-100' : 'bg-white'} transition-transform transform`}>
             <p className="font-semibold text-lg mb-2">From: {message.fullName}</p>
@@ -178,8 +218,18 @@ const Card: React.FC<CardProps> = ({ message, onHandle }) => {
             <p className="text-gray-600 mb-4">Inquiry Type: {message.inquiryType}</p>
             <p className="text-gray-600 mb-4">{message.message}</p>
             <p className="text-gray-500 mb-4">Date: {convertTimestampToDate(message.timestamp)}</p>
+
+            {message.fileUrl && (
+                <button
+                    className="px-4 py-2 rounded-md bg-blue-500 text-white mb-4"
+                    onClick={() => handleDownload(message.fileUrl, `file-${message.id}.pdf`)}
+                >
+                    Download PDF
+                </button>
+            )}
+
             <button
-                className={`px-4 py-2 rounded-md ${message.status === 'DONE' ? 'bg-gray-400 cursor-not-allowed' : 'bg-orange-500 text-white'}`}
+                className={`px-4 mx-2 py-2 rounded-md ${message.status === 'DONE' ? 'bg-gray-400 cursor-not-allowed' : 'bg-orange-500 text-white'}`}
                 onClick={onHandle}
                 disabled={message.status === 'DONE'}
             >
@@ -188,5 +238,6 @@ const Card: React.FC<CardProps> = ({ message, onHandle }) => {
         </div>
     );
 };
+
 
 export default Page;

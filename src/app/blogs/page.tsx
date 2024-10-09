@@ -1,33 +1,17 @@
 "use client"
 import { Image } from "antd";
-const blogData = [
-    {
-        type: "article",
-        title: "How to Create Responsive UIs",
-        content: `In this article, we will learn how to create responsive user interfaces using modern CSS frameworks like Tailwind CSS. 
-        Responsive design ensures that web applications look good on all devices, regardless of screen size.`,
-        imageUrl: "./bank-investent.jpg",
-    },
-    {
-        type: "video",
-        title: "Understanding CSS Grid",
-        videoUrl: "https://www.youtube.com/embed/EFafSYg-PkI"
-    },
-    {
-        type: "article",
-        title: "Modern JavaScript Features",
-        content: `JavaScript has evolved significantly in recent years, with the introduction of ES6+ features such as let, const, arrow functions, and more. 
-        In this article, we will explore some of these features and how they can improve your code.`,
-        imageUrl: "./consultancy.jpg",
-    },
-    {
-        type: "video",
-        title: "Mastering Flexbox",
-        videoUrl: "https://www.youtube.com/embed/JJSoEo8JSnc"
-    },
-];
+import { useState } from "react";
+interface Blog{
+    type: string;
+    title: string;
+    content?: string;
+    imageUrl?: string;
+    videoUrl?: string;
+}
+
 
 function Blog() {
+    const [blogData, setBlogData] = useState<Blog[]>([]);
     return (
         <div className="container mx-auto pt-28 text-black bg-slate-300">
             <h1 className="text-3xl font-bold mb-6 text-center ">Our Blog</h1>

@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { addMessage } from "@/db/puts";
-import { uploadFile } from "@/helpers/upload";
 import { getMessages } from "@/db/gets";
 export async function POST(req: Request) {
     try {
@@ -17,11 +16,9 @@ export async function POST(req: Request) {
         const file = formData.get("file") as File | null;
         if (file) {
             // Upload file to cloud storage (e.g., AWS S3, etc.)
-            const fileUrl = await uploadFile(file);
-            if (!fileUrl) {
-                return NextResponse.json({ status: 400, error: "Error uploading file" });
-            }
-            const result = await addMessage(fullName, email, businessName, inquiryType, message, fileUrl);
+            const arrayBuffer = await file.arrayBuffer();
+            const fileBase64 = await arrayBufferToBase64(arrayBuffer);
+            const result = await addMessage(fullName, email, businessName, inquiryType, message, fileBase64);
             return NextResponse.json({ status: 200, data: result });
         }
         const result = await addMessage(fullName, email, businessName, inquiryType, message);
@@ -41,6 +38,9 @@ export async function POST(req: Request) {
             }
         );
     }
+}
+async function arrayBufferToBase64(buffer: ArrayBuffer): Promise<string> {
+    return Buffer.from(buffer).toString('base64');
 }
 export async function GET() {
     try {
