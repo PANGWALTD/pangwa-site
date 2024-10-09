@@ -2,7 +2,7 @@ import { Image } from 'antd';
 
 const HomePage = () => {
     return (
-        <div className="flex flex-col items-center justify-between w-full bg-slate-300">
+        <div className="flex flex-col items-center justify-between w-full bg-white">
             <div className="md:w-96 md:mt-5 mt-20">
                 <Image
                     preview={false}
