@@ -37,11 +37,11 @@ function Home() {
                 beforeChange={(current, next) => setCurrentSlide(next)} // Track slide change
             >
 
-                {/* <div className="relative max-h-[700px]">
+                <div className="relative max-h-[700px]">
                     <Image
                         preview={false}
                         width="100%"
-                        src="./home-image-min.jpg"
+                        src="./home.jpg"
                         height={700}
                         alt="Image 1"
                         style={{ objectFit: "cover" }}
@@ -52,7 +52,7 @@ function Home() {
                         )}`}
                     >
                     </div>
-                </div> */}
+                </div>
 
 
 
@@ -69,7 +69,7 @@ function Home() {
                             0
                         )}`}
                     >
-                        <h1 className="text-6xl font-bold mb-2 text-center">Business Loans</h1>
+                        <h1 className="md:text-6xl font-bold mb-2 text-4xl text-center">Business Loans</h1>
                     </div>
                 </div>
                 <div className="relative max-h-[600px]">
@@ -85,7 +85,7 @@ function Home() {
                             1
                         )}`}
                     >
-                        <h1 className="text-6xl font-bold mb-2 text-center">
+                        <h1 className="md:text-6xl text-4xl font-bold mb-2 text-center">
                             Trade Finance Solutions
                         </h1>
                     </div>
@@ -104,7 +104,7 @@ function Home() {
                             2
                         )}`}
                     >
-                        <h1 className="text-6xl font-bold mb-2 text-center">
+                        <h1 className="md:text-6xl text-4xl font-bold mb-2 text-center mt-5">
                             Business Advisory & Consultancy
                         </h1>
                     </div>

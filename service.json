@@ -1,19 +1,4 @@
-API_KEY = AIzaSyAtiRQJpByu9FXdJ0fWIxcTzCju8kmin9M
-AUTH_DOMAIN = whatsapp-ecommerce.firebaseapp.com
-PROJECT_ID = whatsapp-ecommerce
-STORAGE_KEY = whatsapp-ecommerce.appspot.com
-MESSAGING_SENDER_ID = 477051730832
-APP_ID = 1:477051730832:web:9b69294aac372e82371115
-AWS_ACCESS_KEY_ID=RP7EKH31MROHBNRDOEET
-AWS_BUCKET_NAME=trendai
-AWS_BUCKET_REGION=us-southeast-1
-AWS_ENDPOINT=https://us-southeast-1.linodeobjects.com
-AWS_SECRET_ACCESS_KEY=33f5zdpeUqniDbAgaKsxBnlY0qjGAwr9tkBtL6rA
-
-GOOGLE_SECRET = YVRY8Fuuy2J5YIA3S0IDBDLV5uOLgMgmTEldRR18
-GOOGLE_ACCESS_KEY = GOOGUGOB3LY5EYTMHSOZBAZK
-SERVICE_SECRET = yXS/eJgG9FGhAShUyILF6P/NntUsEZPSE1d2/AJy
-KEY_NAME = {
+{
   "type": "service_account",
   "project_id": "phonic-botany-438021-n5",
   "private_key_id": "c2eb8f4e379703307129be6dbac8bcccea54901c",
@@ -26,4 +11,3 @@ KEY_NAME = {
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pangwa-site%40phonic-botany-438021-n5.iam.gserviceaccount.com",
   "universe_domain": "googleapis.com"
 }
-GOOGLE_CLOUD_BUCKET_NAME=pangwa_capital
