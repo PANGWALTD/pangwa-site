@@ -1,27 +1,35 @@
-import { v2 as cloudinary } from 'cloudinary'
+import {Storage} from '@google-cloud/storage';
 import * as dotenv from 'dotenv';
 dotenv.config();
-cloudinary.config({
-    cloud_name: process.env.CLOUD_NAME,
-    api_key: process.env.API_KEY_CLOUDINARY,
-    api_secret: process.env.CLOUDINARY_SECRET
-});
+
 export async function uploadFile(file: File) {
+    const storage = new Storage({
+        keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS,
+        projectId: process.env.GOOGLE_CLOUD_PROJECT_ID
+    })
     try {
-        const base64 = await toBase64(file);
-        const { secure_url } = await cloudinary.uploader.upload(base64);
-        return secure_url;
+        
+        const bucketName = process.env.GOOGLE_CLOUD_BUCKET_NAME!;
+        const bucket = storage.bucket(bucketName);
+        const blob = bucket.file(file.name);
+        const blobStream = blob.createWriteStream({
+            resumable: false,
+        });
+
+        return new Promise((resolve, reject) => {
+            blobStream.on('error', (err) => {
+            reject(err);
+            });
+
+            blobStream.on('finish', () => {
+            const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
+            resolve(publicUrl);
+            });
+
+            blobStream.end(file.buffer);
+        });
     } catch (e) {
         console.error("Error uploading file: ", e);
         return null;
     }
-}
-
-function toBase64(file: File): Promise<string> {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result as string);
-        reader.onerror = error => reject(error);
-    });
 }

@@ -13,26 +13,26 @@ function WhyChooseUs() {
                     </p>
                     <span className="block text-gray-700">
                         <ul className="space-y-6 list-none">
-                            <li className="flex items-center">
-                                <FaCheckCircle className="text-green-500 text-2xl mr-3" size={30} />
+                            <li className="flex items-center ">
+                                <Image src="./image micro.png" preview={false} width={40} height={40} />
                                 <span>
                                     <strong>Apply or Register:</strong> Submit a loan application or register for advisory or consultancy service.
                                 </span>
                             </li>
                             <li className="flex items-center">
-                                <FaHandshake className="text-blue-500 text-2xl mr-3" size={30} />
+                                <Image src="./image micro.png" preview={false} width={40} height={40} />
                                 <span>
                                     <strong>Assessment & Matchmaking:</strong> We assess your needs and match you with the right financial solution, advisory service & consultancy service.
                                 </span>
                             </li>
                             <li className="flex items-center">
-                                <FaChartLine className="text-yellow-500 text-2xl mr-3" size={30} />
+                                <Image src="./image micro.png" preview={false} width={40} height={40} />
                                 <span>
                                     <strong>Engage & Grow:</strong> Access funds or expert advice to help grow your business.
                                 </span>
                             </li>
                             <li className="flex items-center">
-                                <FaUsers className="text-red-500 text-2xl mr-3" size={30} />
+                                <Image src="./image micro.png" preview={false} width={40} height={40} />
                                 <span>
                                     <strong>Ongoing Support:</strong> Continue benefiting from our flexible repayment terms, consultancy services, and follow-up support.
                                 </span>
@@ -49,25 +49,25 @@ function WhyChooseUs() {
                     <span className="block text-gray-700 md:mb-10">
                         <ul className="space-y-6 list-none">
                             <li className="flex items-center">
-                                <FaCheckCircle className="text-green-500 text-2xl mr-3" size={30} />
+                                <Image src="./image micro.png" preview={false} width={40} height={40} />
                                 <span>
                                     Expert financial and business advisory services tailored to your business needs.
                                 </span>
                             </li>
                             <li className="flex items-center">
-                                <FaHandshake className="text-blue-500 text-2xl mr-3" size={30} />
+                                <Image src="./image micro.png" preview={false} width={40} height={40} />
                                 <span>
                                     Access to a wide network of financial partners and industry experts.
                                 </span>
                             </li>
                             <li className="flex items-center">
-                                <FaChartLine className="text-yellow-500 text-2xl mr-3" size={30} />
+                                <Image src="./image micro.png" preview={false} width={40} height={40} />
                                 <span>
                                     Flexible and customized financial solutions that support business growth.
                                 </span>
                             </li>
                             <li className="flex items-center ">
-                                <FaUsers className="text-red-500 text-2xl mr-3" size={30} />
+                                <Image src="./image micro.png" preview={false} width={40} height={40} />
                                 <span>
                                     Dedicated ongoing support and consultancy throughout your business journey.
                                 </span>
@@ -78,19 +78,17 @@ function WhyChooseUs() {
                         {/* Image section */}
                         <div className="md:w-1/2 flex justify-center md:justify-end mb-6 md:mb-0">
                             <Image
-                                src="./gentleman2.jpg" // Replace with actual image source
+                                src="./headshot.jpeg" // Replace with actual image source
                                 alt="Wesley Onyango"
-                                width={350}
-                                height={350}
-                                className="rounded-full shadow-lg"
+                                className="rounded-sm shadow-lg w-auto max-w-[200px] md:max-w-[200px]" // Auto width and height, limit max width for responsiveness
                                 preview={false}
                             />
                         </div>
 
                         {/* Quote section */}
-                        <div className=" sm:ml-5 md:w-1/2 text-center md:text-left">
-                            <p className="text-lg italic text-gray-700 mb-4">
-                            &#34;At PANGWA, we believe that empowering micro and small businesses with
+                        <div className="sm:ml-5 md:w-1/2 text-left md:text-left">
+                            <p className="text-lg italic text-gray-700 mb-4 text-left">
+                                &#34;At PANGWA, we believe that empowering micro and small businesses with
                                 accessible financial solutions is the cornerstone of sustainable
                                 economic growth in East Africa. By bridging financial gaps, we are not
                                 just supporting businesses; we are nurturing the future of our
@@ -99,6 +97,7 @@ function WhyChooseUs() {
                             <p className="font-bold text-gray-900">Wesley Onyango, Co-founder & CEO</p>
                         </div>
                     </div>
+
 
 
 

@@ -8,7 +8,7 @@ function AboutUs() {
             <div className="shadow-lg p-6 flex flex-col items-center text-center bg-white rounded-lg transition-transform transform hover:scale-105">
                 <Image preview={false} src="./mission.png" width={100} alt="" />
                 <p className="font-semibold text-lg mt-4">Our Mission</p>
-                <span className="mt-2 text-gray-600">
+                <span className="mt-2 text-gray-600 text-base">
                     To empower businesses by providing innovative financial solutions, expert advisory.
                 </span>
             </div>
@@ -19,20 +19,20 @@ function AboutUs() {
             <div className="shadow-lg p-6 flex flex-col items-center text-center bg-white rounded-lg transition-transform transform hover:scale-105">
                 <Image preview={false} src="./story1.png" width={100} alt="" />
                 <p className="font-semibold text-lg mt-4">Our Story</p>
-                <span className="mt-2 text-gray-600">
+                <span className="mt-2 text-gray-600 text-base">
                     PANGWA was founded with a vision to address the financial gaps faced by micro and small businesses in East Africa.
                 </span>
             </div>
 
             {/* Values */}
-            <div className="shadow-lg p-6 flex flex-col items-center text-center bg-white rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl hover:bg-gray-50">
-                <Image preview={false} src="./values2.png" width={100} alt="" />
-                <p className="font-bold text-xl mt-4 text-gray-800">Our Values</p>
-                <ol className="mt-4 text-gray-600 space-y-2 text-lg">
-                    <li className="hover:text-blue-500 transition-colors">Impact-Driven</li>
+            <div className="shadow-lg text-base pt-10 p-6 flex flex-col items-center text-center bg-white rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+                <Image preview={false} src="./values2.png" width={80} alt="" />
+                <p className="font-bold text-lg mt-4 text-gray-800">Our Values</p>
+                <ol className="mt-4 text-gray-600 space-y-1 text-base">
+                    <li className="">Impact-Driven</li>
 
-                    <li className="hover:text-blue-500 transition-colors">Customer-Centricity</li>
-                    <li className="hover:text-blue-500 transition-colors">Collaboration</li>
+                    <li className="">Customer-Centricity</li>
+                    <li className="">Collaboration</li>
                 </ol>
             </div>
 

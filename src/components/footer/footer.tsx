@@ -166,7 +166,7 @@ function Footer() {
                             onChange={handleInputChange}
                             className="w-full p-3 bg-gray-800 text-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                         >
-                            <option value="Inquiry">Inquiry</option>
+                            <option value="Inquiry">Enquiry</option>
                             <option value="Business Loan">Business Loan</option>
                             <option value="Advisory">Advisory & Consultancy</option>
 

@@ -29,8 +29,9 @@ function Services() {
                 {/* Service Item */}
                 <div className=" md:flex-row items-center bg-white shadow-lg rounded-lg overflow-hidden transition-transform hover:scale-105">
                     <Image preview={false}
-                        src="./port2.jpeg"
+                        src="./port6.jpg"
                         width="100%"
+                        
                         className="w-full md:w-auto rounded-md object-cover"
                         alt="Trade Finance Solutions"
                     />
