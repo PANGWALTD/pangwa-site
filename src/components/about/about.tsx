@@ -9,7 +9,7 @@ function AboutUs() {
                 <Image preview={false} src="./mission.png" width={90} alt=""  className="pt-2"/>
                 <p className="font-semibold text-lg mt-7 text-gray-800">Our Mission</p>
                 <span className="mt-2 text-gray-600 text-base">
-                    To empower businesses by providing innovative financial solutions, expert advisory.
+                    To empower businesses by providing innovative financial solutions and expert advisory.
                 </span>
             </div>
 

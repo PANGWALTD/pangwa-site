@@ -115,7 +115,7 @@ function Footer() {
                     </div>
                     <div className="flex items-center mb-4">
                         <FaEnvelope className="text-white mr-3" />
-                        <p>ceo@pangwacapital.com</p>
+                        <p>info@pangwacapital.com</p>
                     </div>
                     <div className="flex items-center space-x-4">
                         <Link href="">
