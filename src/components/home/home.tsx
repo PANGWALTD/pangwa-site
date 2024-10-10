@@ -37,25 +37,24 @@ function Home() {
                 nextArrow={<NextArrow className={undefined} onClick={undefined} />}
                 beforeChange={(current, next) => setCurrentSlide(next)} // Track slide change
             >
-                <div className="relative min-h-[500px] md:h-auto h-[75vh] max-h-[600px]">
+                <div className="relative 2xl:min-h-[900px] min-h-[500px]  md:h-auto h-[75vh] max-h-[600px]">
                     <HomePage />
-                    <div
+                    {/* <div
                         className={`absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-20 text-white transition-all duration-500 ease-in-out ${animationClass(
                             0
                         )}`}
                     >
-                        {/* <h1 className="md:text-6xl font-bold mb-2 text-4xl text-center">Business Loans</h1> */}
-                    </div>
+                    </div> */}
                 </div>
 
-                <div className="relative min-h-[500px] md:h-auto h-[75vh] max-h-[600px]">
+                <div className="relative min-h-[500px] 2xl:min-h-[900px] md:min-h-[700px] h-[75vh] max-h-[700px]">
                     <Image
                         preview={false}
                         width="100%"
                         src="./colleagues-team.jpg"
                         alt="Image 1"
                         style={{ objectFit: "cover" }}
-                        className="min-h-[500px] md:h-auto h-[75vh] max-h-[600px]"
+                        className="min-h-[500px] md:min-h-[700px]  2xl:min-h-[900px] md:h-auto h-[75vh] max-h-[600px]"
                     />
                     <div
                         className={`absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white transition-all duration-500 ease-in-out ${animationClass(
@@ -66,14 +65,14 @@ function Home() {
                     </div>
                 </div>
 
-                <div className="relative md:h-auto min-h-[500px] h-[75vh] max-h-[600px] ">
+                <div className="relative md:h-auto 2xl:min-h-[900px] min-h-[500px] h-[75vh] max-h-[600px] ">
                     <Image
                         preview={false}
                         width="100%"
                         src="./port1.jpg"
                         alt="Image 2"
                         style={{ objectFit: "cover" }}
-                        className="min-h-[500px] md:h-auto h-[75vh] max-h-[600px]"
+                        className="min-h-[500px] 2xl:min-h-[900px] md:h-auto h-[75vh] max-h-[600px]"
                     />
                     <div
                         className={`absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white transition-all duration-500 ease-in-out ${animationClass(
@@ -86,14 +85,14 @@ function Home() {
                     </div>
                 </div>
 
-                <div className="relative  md:h-auto min-h-[500px] h-[75vh] max-h-[600px]">
+                <div className="relative 2xl:min-h-[900px]  md:h-auto min-h-[500px] h-[75vh] max-h-[600px]">
                     <Image
                         preview={false}
                         width="100%"
                         src="./team-business-people-collaborating.jpg"
                         alt="Image 3"
                         style={{ objectFit: "cover" }}
-                        className=" min-h-[500px] md:h-auto h-[75vh] max-h-[600px] "
+                        className=" min-h-[500px] 2xl:min-h-[900px] md:h-auto h-[75vh] max-h-[600px] "
                     />
                     <div
                         className={`absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white transition-all duration-500 ease-in-out ${animationClass(

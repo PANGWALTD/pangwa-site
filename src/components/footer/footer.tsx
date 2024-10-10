@@ -115,7 +115,7 @@ function Footer() {
                     </div>
                     <div className="flex items-center mb-4">
                         <FaEnvelope className="text-white mr-3" />
-                        <p>pangwacapitalemail@gmail.com</p>
+                        <p>ceo@pangwacapital.com</p>
                     </div>
                     <div className="flex items-center space-x-4">
                         <Link href="">
@@ -131,8 +131,18 @@ function Footer() {
                             <FaInstagram className="text-white cursor-pointer hover:text-gray-400" />
                         </Link>
                     </div>
+                    <div className="mb-6 mt-6">
+                                    <h4 className="text-xl font-bold text-white mb-2">Download Loan Application Form</h4>
+                                    <a
+                                        href="./PANGWA CAPITAL LIMITED - BUSINESS LOAN APPLICATION, AGREEMENT, AND PERSONAL GUARANTEE FORMS.pdf"
+                                        download
+                                        className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+                                    >
+                                        Download Application Form
+                                    </a>
+                                </div>
                 </div>
-
+               
                 {/* Contact Form */}
                 <div>
                     <h3 className="text-3xl font-bold text-white mb-4">Get in Touch</h3>

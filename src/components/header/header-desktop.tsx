@@ -14,7 +14,7 @@ function HeaderDesktop() {
     }, []);
 
     return (
-        <div className={` text-emerald-800 shadow-sm`}>
+        <div className={` text-emerald-800 shadow-md border-b-[1px]`}>
             <div className="container mx-auto flex justify-between items-center px-8">
                 {/* Logo */}
                 <div className="logo ml-4">
