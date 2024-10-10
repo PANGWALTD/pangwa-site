@@ -1,7 +1,9 @@
-"use client"
+"use client";
 import { Image } from "antd";
-import { useState } from "react";
-interface Blog{
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+interface Blog {
     type: string;
     title: string;
     content?: string;
@@ -9,34 +11,47 @@ interface Blog{
     videoUrl?: string;
 }
 
-
 function Blog() {
     const [blogData, setBlogData] = useState<Blog[]>([]);
+
+    useEffect(() => {
+        async function getblogs() {
+            const response = await axios.get("/api/blogs");
+            setBlogData(response.data.data);
+        }
+        getblogs();
+    }, []);
+
     return (
-        <div className="container mx-auto pt-28 text-black bg-slate-300">
-            <h1 className="text-3xl font-bold mb-6 text-center ">Our Blog</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:px-20">
+        <div className="container mx-auto pt-28 pb-16 px-4 md:px-8 text-black bg-slate-300">
+            <h1 className="text-4xl font-extrabold mb-10 text-center text-gray-800">Our Blogs</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {blogData.map((item, index) => (
-                    <div key={index} className="bg-white shadow-md rounded-lg p-6 transform transition-all duration-300 hover:scale-105">
+                    <div
+                        key={index}
+                        className="bg-white shadow-lg rounded-lg overflow-hidden p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+                    >
                         {/* Article Type */}
                         {item.type === "article" && (
                             <>
-                                <h2 className="text-2xl font-bold mb-4">{item.title}</h2>
+                                <h2 className="text-2xl font-semibold mb-4 text-gray-900">{item.title}</h2>
                                 {item.imageUrl && (
                                     <Image
-                                    preview={false}
+                                        preview={false}
                                         src={item.imageUrl}
                                         alt={item.title}
                                         className="w-full h-48 object-cover rounded-md mb-4"
                                     />
                                 )}
-                                <p className="text-gray-700 text-justify">{item.content}</p>
+                                <p className="text-gray-700 leading-relaxed line-clamp-3">{item.content}</p>
+                                <a href="#" className="text-blue-600 mt-4 block">Read more</a>
                             </>
                         )}
+
                         {/* Video Type */}
                         {item.type === "video" && (
                             <>
-                                <h2 className="text-2xl font-bold mb-4">{item.title}</h2>
+                                <h2 className="text-2xl font-semibold mb-4 text-gray-900">{item.title}</h2>
                                 <div className="relative overflow-hidden rounded-lg">
                                     <iframe
                                         className="w-full h-64 md:h-72 rounded-md"

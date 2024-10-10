@@ -40,7 +40,7 @@ function Home() {
                 <div className="relative min-h-[500px] md:h-auto h-[75vh] max-h-[600px]">
                     <HomePage />
                     <div
-                        className={`absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white transition-all duration-500 ease-in-out ${animationClass(
+                        className={`absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-20 text-white transition-all duration-500 ease-in-out ${animationClass(
                             0
                         )}`}
                     >

@@ -46,3 +46,32 @@ export async function updateStatus(id: string) {
         return null;
     }
 }
+export async function addBlog(type: string, title: string, content?: string, imageUrl?: string, videoUrl?: string) {
+    try {
+        const docRef = await addDoc(collection(db, "blogs"), {
+            type,
+            title,
+            content,
+            imageUrl,
+            videoUrl,
+            timestamp: new Date(),
+        });
+        console.log("Document written with ID: ", docRef.id);
+        return docRef.id;
+    } catch (e) {
+        console.error("Error adding document: ", e);
+        return null;
+    }
+}
+export async function deleteBlog(id: string) {
+    try {
+        await setDoc(doc(db, "blogs", id), {
+            deleted: true,
+        });
+        console.log("Document deleted with ID: ", id);
+        return id;
+    } catch (e) {
+        console.error("Error deleting document: ", e);
+        return null;
+    }
+}

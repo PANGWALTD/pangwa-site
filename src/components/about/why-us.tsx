@@ -14,25 +14,38 @@ function WhyChooseUs() {
                     <span className="block text-gray-700">
                         <ul className="space-y-6 list-none">
                             <li className="flex items-center ">
-                                <Image src="./image micro.png" preview={false} width={40} height={40} />
-                                <span>
+                                <div>
+                                    <Image src="./image micro.png" preview={false} width={40} height={40} />
+
+                                </div>
+                                <span className="">
                                     <strong>Apply or Register:</strong> Submit a loan application or register for advisory or consultancy service.
                                 </span>
                             </li>
                             <li className="flex items-center">
-                                <Image src="./image micro.png" preview={false} width={40} height={40} />
+                                <div>
+                                    <Image src="./image micro.png" preview={false} width={40} height={40} />
+
+                                </div>
                                 <span>
                                     <strong>Assessment & Matchmaking:</strong> We assess your needs and match you with the right financial solution, advisory service & consultancy service.
                                 </span>
                             </li>
                             <li className="flex items-center">
-                                <Image src="./image micro.png" preview={false} width={40} height={40} />
+                                <div>
+                                    <Image src="./image micro.png" preview={false} width={40} height={40} />
+
+                                </div>
                                 <span>
                                     <strong>Engage & Grow:</strong> Access funds or expert advice to help grow your business.
                                 </span>
                             </li>
                             <li className="flex items-center">
-                                <Image src="./image micro.png" preview={false} width={40} height={40} />
+                                <div className="">
+                                    <Image src="./image micro.png" preview={false} width={40} height={40} />
+
+                                </div>
+
                                 <span>
                                     <strong>Ongoing Support:</strong> Continue benefiting from our flexible repayment terms, consultancy services, and follow-up support.
                                 </span>
@@ -49,26 +62,38 @@ function WhyChooseUs() {
                     <span className="block text-gray-700 md:mb-10">
                         <ul className="space-y-6 list-none">
                             <li className="flex items-center">
-                                <Image src="./image micro.png" preview={false} width={40} height={40} />
+                                <div className="">
+                                    <Image src="./image micro.png" preview={false} width={40} height={40} />
+
+                                </div>
                                 <span>
                                     Expert financial and business advisory services tailored to your business needs.
                                 </span>
                             </li>
                             <li className="flex items-center">
-                                <Image src="./image micro.png" preview={false} width={40} height={40} />
-                                <span>
+                                <div className="">
+                                    <Image src="./image micro.png" preview={false} width={40} height={40} />
+
+                                </div>
+                                <span className="">
                                     Access to a wide network of financial partners and industry experts.
                                 </span>
                             </li>
                             <li className="flex items-center">
-                                <Image src="./image micro.png" preview={false} width={40} height={40} />
+                                <div className="">
+                                    <Image src="./image micro.png" preview={false} width={40} height={40} />
+
+                                </div>
                                 <span>
                                     Flexible and customized financial solutions that support business growth.
                                 </span>
                             </li>
                             <li className="flex items-center ">
-                                <Image src="./image micro.png" preview={false} width={40} height={40} />
-                                <span>
+                                <div className="">
+                                    <Image src="./image micro.png" preview={false} width={40} height={40} />
+
+                                </div>
+                                <span className="">
                                     Dedicated ongoing support and consultancy throughout your business journey.
                                 </span>
                             </li>
@@ -76,14 +101,14 @@ function WhyChooseUs() {
                     </span>
                     <div className="flex flex-col md:flex-row items-center justify-center bg-gray-100 p-8 md:p-12 rounded-lg shadow-md">
                         {/* Image section */}
-                      
-                            <Image
-                                src="./headshot.jpeg" // Replace with actual image source
-                                alt="Wesley Onyango"
-                                className="rounded-md shadow-lg w-auto max-w-[200px] md:max-w-[200px]" // Rounded image with shadow effect
-                                preview={false}
-                            />
-                        
+
+                        <Image
+                            src="./headshot.jpeg" // Replace with actual image source
+                            alt="Wesley Onyango"
+                            className="rounded-md shadow-lg w-auto max-w-[200px] md:max-w-[200px]" // Rounded image with shadow effect
+                            preview={false}
+                        />
+
 
                         {/* Quote section */}
                         <div className="sm:ml-5 md:w-1/2 text-center">

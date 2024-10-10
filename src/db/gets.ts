@@ -26,3 +26,17 @@ export async function auth()
         return null;
     }
 }
+export async function getBlogs() {
+    try {
+        const q = query(collection(db, "blogs"));
+        const querySnapshot = await getDocs(q);
+        const blogs = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+        return blogs;
+    } catch (e) {
+        console.error("Error getting documents: ", e);
+        return null;
+    }
+}
