@@ -5,7 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import { toast } from "sonner";
-
+import { Image } from "antd";
 function Footer() {
     const [formData, setFormData] = useState({
         fullName: "",
@@ -118,18 +118,18 @@ function Footer() {
                         <p>info@pangwacapital.com</p>
                     </div>
                     <div className="flex items-center space-x-4">
-                        <Link href="">
-                            <FaFacebookF className="text-white cursor-pointer hover:text-gray-400" />
+                        <Link href="https://www.facebook.com/people/Pangwa-Capital-Limited/61566604456012/" target="_blank" rel="noopener noreferrer">
+                        <Image src="./Facebook_Icon.jpeg" preview={false} width={40} height={40} className="rounded-md"/>
                         </Link>
-                        <Link href="https://x.com/PangwaCapital">
-                            <FaXTwitter className="text-white cursor-pointer hover:text-gray-400" />
+                        <Link href="https://x.com/PangwaCapital" target="_blank" rel="noopener noreferrer">
+                        <Image src="./X_Icon.jpeg" preview={false} width={40} height={40} className="rounded-md" />
                         </Link>
-                        <Link href="">
-                            <FaLinkedin className="text-white cursor-pointer hover:text-gray-400" />
+                        <Link href="https://www.linkedin.com/company/pangwa-capital-limited/" target="_blank" rel="noopener noreferrer">
+                            <Image src="./LinkedIn_Icon.png" preview={false} width={40} height={40} className="rounded-md" />
                         </Link>
-                        <Link href="">
+                        {/* <Link href="">
                             <FaInstagram className="text-white cursor-pointer hover:text-gray-400" />
-                        </Link>
+                        </Link> */}
                     </div>
                     <div className="mb-6 mt-6">
                                     <h4 className="text-xl font-bold text-white mb-2">Download Loan Application Form</h4>
