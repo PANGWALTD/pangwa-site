@@ -13,6 +13,7 @@ interface Blog {
 
 function Blog() {
     const [blogData, setBlogData] = useState<Blog[]>([]);
+    const [expandedBlogs, setExpandedBlogs] = useState<number[]>([]);
 
     useEffect(() => {
         async function getblogs() {
@@ -21,6 +22,14 @@ function Blog() {
         }
         getblogs();
     }, []);
+
+    const toggleReadMore = (index: number) => {
+        if (expandedBlogs.includes(index)) {
+            setExpandedBlogs(expandedBlogs.filter((i) => i !== index));
+        } else {
+            setExpandedBlogs([...expandedBlogs, index]);
+        }
+    };
 
     return (
         <div className="container mx-auto pt-28 pb-16 px-4 md:px-8 text-black bg-slate-300">
@@ -43,8 +52,18 @@ function Blog() {
                                         className="w-full h-48 object-cover rounded-md mb-4"
                                     />
                                 )}
-                                <p className="text-gray-700 leading-relaxed line-clamp-3">{item.content}</p>
-                                <a href="#" className="text-blue-600 mt-4 block">Read more</a>
+                                <p className="text-gray-700 leading-relaxed">
+                                    {expandedBlogs.includes(index)
+                                        ? item.content // Full content
+                                        : item.content?.substring(0, 100) + "..."} {/* Shortened content */}
+                                </p>
+                                <a
+                                    href="#"
+                                    className="text-blue-600 mt-4 block"
+                                    onClick={() => toggleReadMore(index)}
+                                >
+                                    {expandedBlogs.includes(index) ? "Read less" : "Read more"}
+                                </a>
                             </>
                         )}
 
