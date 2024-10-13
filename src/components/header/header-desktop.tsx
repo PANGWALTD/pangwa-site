@@ -21,7 +21,7 @@ function HeaderDesktop() {
                     <Image
                     preview={false}
                         width={150}
-                        src="./newest-logo.png"
+                        src="/newest-logo.png"
                         alt="Logo"
                         className="transition-transform duration-300 ease-in-out transform hover:scale-105"
                     />
