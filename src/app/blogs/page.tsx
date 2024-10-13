@@ -1,7 +1,9 @@
 "use client";
-import { Image } from "antd";
+import { Image, Modal } from "antd";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import ReactMarkdown from "react-markdown"; // Import ReactMarkdown
+import rehypeRaw from 'rehype-raw';
 
 interface Blog {
     type: string;
@@ -13,7 +15,8 @@ interface Blog {
 
 function Blog() {
     const [blogData, setBlogData] = useState<Blog[]>([]);
-    const [expandedBlogs, setExpandedBlogs] = useState<number[]>([]);
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
 
     useEffect(() => {
         async function getblogs() {
@@ -23,22 +26,25 @@ function Blog() {
         getblogs();
     }, []);
 
-    const toggleReadMore = (index: number) => {
-        if (expandedBlogs.includes(index)) {
-            setExpandedBlogs(expandedBlogs.filter((i) => i !== index));
-        } else {
-            setExpandedBlogs([...expandedBlogs, index]);
-        }
+    const openModal = (blog: Blog) => {
+        setSelectedBlog(blog);
+        setIsModalVisible(true);
+    };
+
+    const closeModal = () => {
+        setIsModalVisible(false);
+        setSelectedBlog(null);
     };
 
     return (
-        <div className="container mx-auto pt-28 pb-16 px-4 md:px-8 text-black bg-slate-300">
-            <h1 className="text-4xl font-extrabold mb-10 text-center text-gray-800">Our Blogs</h1>
+        <div className="container mx-auto pt-28 pb-16 px-4 md:px-8 text-black bg-slate-100">
+            <h1 className="text-5xl font-extrabold mb-10 text-center text-gray-800">Our Blogs</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {blogData.map((item, index) => (
                     <div
                         key={index}
-                        className="bg-white shadow-lg rounded-lg overflow-hidden p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+                        className="bg-white shadow-lg rounded-lg overflow-hidden p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+                        onClick={() => openModal(item)}
                     >
                         {/* Article Type */}
                         {item.type === "article" && (
@@ -52,18 +58,16 @@ function Blog() {
                                         className="w-full h-48 object-cover rounded-md mb-4"
                                     />
                                 )}
-                                <p className="text-gray-700 leading-relaxed">
-                                    {expandedBlogs.includes(index)
-                                        ? item.content // Full content
-                                        : item.content?.substring(0, 100) + "..."} {/* Shortened content */}
-                                </p>
-                                <a
-                                    href="#"
-                                    className="text-blue-600 mt-4 block"
-                                    onClick={() => toggleReadMore(index)}
+                                <div className="text-gray-700 leading-relaxed">
+                                    <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                                        {item.content?.substring(0, 100) + "..."}
+                                    </ReactMarkdown>
+                                </div>
+                                <button
+                                    className="mt-4 text-blue-600 hover:text-blue-800 font-semibold transition duration-200"
                                 >
-                                    {expandedBlogs.includes(index) ? "Read less" : "Read more"}
-                                </a>
+                                    Read More
+                                </button>
                             </>
                         )}
 
@@ -85,6 +89,34 @@ function Blog() {
                     </div>
                 ))}
             </div>
+
+            {/* Blog Modal */}
+            {selectedBlog && (
+                <Modal
+                    title={selectedBlog.title}
+                    visible={isModalVisible}
+                    onCancel={closeModal}
+                    footer={null}
+                    width={800}
+                    bodyStyle={{ padding: "20px", maxHeight: "80vh", overflowY: "auto" }}
+                >
+                    <div className="modal-content">
+                        {selectedBlog.imageUrl && (
+                            <Image
+                                preview={false}
+                                src={selectedBlog.imageUrl}
+                                alt={selectedBlog.title}
+                                className="w-full h-64 object-cover rounded-lg mb-6"
+                            />
+                        )}
+                        <div className="text-gray-800 leading-relaxed">
+                            <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                                {selectedBlog.content || ""}
+                            </ReactMarkdown>
+                        </div>
+                    </div>
+                </Modal>
+            )}
         </div>
     );
 }

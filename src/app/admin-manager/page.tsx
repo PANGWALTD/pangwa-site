@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
+import Link from "next/link";
 
 // Interface for the message
 interface Message {
@@ -91,7 +92,9 @@ function Page() {
     return (
         <div className="p-6 text-black">
             <h1 className="text-2xl font-bold mb-6 text-center">Admin Manager Page</h1>
-            <p className="text-lg mb-4 text-center">Manage your admin settings and handle messages here</p>
+            <Link href="/admin-manager/create_blog" className="bg-blue-950 text-white p-2 rounded-sm ml-[50%]">
+            Create a blog
+            </Link>
 
             {/* Display PENDING Messages */}
             <h2 className="text-xl font-semibold mb-4">Pending Messages</h2>
