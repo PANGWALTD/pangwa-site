@@ -134,7 +134,7 @@ function Footer() {
                     <div className="mb-6 mt-6">
                         <h4 className="text-xl font-bold text-white mb-2">Download Loan Application Form</h4>
                         <a
-                            href="./PANGWA CAPITAL LIMITED - BUSINESS LOAN APPLICATION, AGREEMENT, AND PERSONAL GUARANTEE FORMS.pdf"
+                            href="./PANGWA CAPITAL LIMITED - BUSINESS LOAN APPLICATION FORM.doc"
                             download
                             className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
                         >
@@ -192,7 +192,7 @@ function Footer() {
                                 <div className="mb-6">
                                     <h4 className="text-xl font-bold text-white mb-2">Download Form</h4>
                                     <a
-                                        href="./PANGWA CAPITAL LIMITED - BUSINESS LOAN APPLICATION, AGREEMENT, AND PERSONAL GUARANTEE FORMS.pdf"
+                                        href="./PANGWA CAPITAL LIMITED - BUSINESS LOAN APPLICATION FORM.doc"
                                         download
                                         className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
                                     >
