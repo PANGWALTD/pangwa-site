@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { addMessage } from "@/db/puts";
 import { getMessages } from "@/db/gets";
+import { sendTelegramNotification } from "@/helpers/upload";
 export async function POST(req: Request) {
     try {
         const formData = await req.formData();
@@ -22,6 +23,8 @@ export async function POST(req: Request) {
             return NextResponse.json({ status: 200, data: result });
         }
         const result = await addMessage(fullName, email, businessName, inquiryType, message);
+        console.log("about to call telegram");
+        await sendTelegramNotification(`New message from ${fullName} (${email})\nBusiness Name: ${businessName}\nInquiry Type: ${inquiryType}\nMessage: ${message}`);
         return NextResponse.json({
             status: 200,
             data: result,
