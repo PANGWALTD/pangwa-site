@@ -54,7 +54,7 @@ function Page() {
     }
 
     return (
-        <div className="text-black max-w-4xl mx-auto pt-10 min-h-screen px-4 md:px-20 lg:px-40 bg-gray-100">
+        <div className="text-black max-w-4xl mx-auto pt-24 min-h-screen px-4 md:px-20 lg:px-40 bg-gray-100">
             <h1 className="text-2xl md:text-4xl font-bold mb-6 text-center">Create a New Blog Post</h1>
 
             <div className="space-y-6">

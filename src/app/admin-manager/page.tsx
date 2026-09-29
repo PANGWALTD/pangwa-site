@@ -90,7 +90,7 @@ function Page() {
     if (loading) return <p>Loading messages...</p>;
 
     return (
-        <div className="p-6 text-black">
+        <div className="p-6 pt-24 text-black">
             <h1 className="text-2xl font-bold mb-6 text-center">Admin Manager Page</h1>
             <Link href="/admin-manager/create_blog" className="bg-blue-950 text-white p-2 rounded-sm ml-[50%]">
             Create a blog

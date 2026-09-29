@@ -43,7 +43,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen pt-16 flex items-center justify-center bg-gray-100">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
         <div className="text-center mb-6">
           <h1 className="text-2xl font-bold text-gray-800">Admin Login</h1>
