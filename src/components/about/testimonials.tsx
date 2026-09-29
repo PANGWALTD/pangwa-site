@@ -14,9 +14,7 @@ function Testimonials() {
                     <Reveal key={c.company} delay={(i % 2) * 100}>
                         <article className="flex h-full flex-col rounded-2xl border border-gray-100 bg-gray-50 p-7 transition duration-300 hover:-translate-y-1 hover:shadow-xl">
                             <div className="flex items-center gap-4">
-                                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-brand-navy font-bold text-white">
-                                    {c.company.split(" ").slice(0, 2).map((w) => w[0]).join("")}
-                                </div>
+                                <div className="h-12 w-12 shrink-0 rounded-xl bg-gray-200" aria-hidden />
                                 <div>
                                     <h3 className="font-bold text-gray-900">{c.company}</h3>
                                     <p className="text-sm text-gray-500">{c.sector} · {c.country}</p>
