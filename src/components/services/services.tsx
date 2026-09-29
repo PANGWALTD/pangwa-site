@@ -19,7 +19,7 @@ function ServiceCard({ s, i }: { s: (typeof services)[number]; i: number }) {
                     onClick={() => setFlipped((f) => !f)}
                     aria-pressed={flipped}
                     aria-label={`${s.title}. Show details`}
-                    className="flip-face absolute inset-0 overflow-hidden rounded-2xl text-left shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-amber"
+                    className="flip-face absolute inset-0 overflow-hidden rounded-2xl text-center shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-amber"
                 >
                     <Image
                         src={s.image}
@@ -40,7 +40,7 @@ function ServiceCard({ s, i }: { s: (typeof services)[number]; i: number }) {
 
                 {/* Back: description */}
                 <div
-                    className="flip-face flip-back absolute inset-0 flex flex-col rounded-2xl bg-gradient-to-br from-brand-navy to-brand-ink p-6 text-white shadow-lg ring-1 ring-brand-amber/60"
+                    className="flip-face flip-back absolute inset-0 flex flex-col items-center rounded-2xl bg-gradient-to-br text-center from-brand-navy to-brand-ink p-6 text-white shadow-lg ring-1 ring-brand-amber/60"
                     aria-hidden={!flipped}
                 >
                     <h3 className="mb-3 text-xl font-bold text-brand-amber">{s.title}</h3>
@@ -50,7 +50,7 @@ function ServiceCard({ s, i }: { s: (typeof services)[number]; i: number }) {
                     <a
                         href="#contact"
                         onClick={() => window.dispatchEvent(new CustomEvent("select-service", { detail: s.slug }))}
-                        className="mt-4 self-start rounded-full bg-brand-amber px-5 py-2 text-sm font-semibold text-brand-ink transition hover:brightness-110"
+                        className="mt-4 self-center rounded-full bg-brand-amber px-5 py-2 text-sm font-semibold text-brand-ink transition hover:brightness-110"
                     >
                         Enquire →
                     </a>
