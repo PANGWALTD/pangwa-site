@@ -33,7 +33,7 @@ function Counter({ to, prefix, suffix }: { to: number; prefix: string; suffix: s
 function Metrics() {
     return (
         <section className="bg-brand-ink py-14 text-white">
-            <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 text-center md:grid-cols-4 md:px-12">
+            <dl className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-6 text-center sm:grid-cols-3 md:px-12">
                 {metrics.map((m) => (
                     <div key={m.label}>
                         <dd className="text-4xl font-bold tabular-nums text-brand-amber md:text-5xl">
