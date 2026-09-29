@@ -6,7 +6,7 @@ function Testimonials() {
     return (
         <section id="clients" className="bg-white px-4 py-20 md:px-12 lg:px-24">
             <Reveal className="mb-12 text-center">
-                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-brand-amber">Client stories</p>
+                <p className="text-base font-semibold uppercase tracking-[0.25em] text-brand-amber md:text-2xl">Client stories</p>
                 <h2 className="mt-2 text-3xl font-bold text-brand-navy md:text-4xl">Businesses we&apos;ve helped grow</h2>
             </Reveal>
             <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2">
