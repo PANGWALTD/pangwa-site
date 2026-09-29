@@ -16,8 +16,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Pangwa Capital",
-  description: "Pangwa capital",
+  title: { default: "Pangwa Capital", template: "%s | Pangwa Capital" },
+  description:
+    "Pangwa Capital connects growth-focused businesses across East Africa and beyond with equity, debt and trade finance partners, plus hands-on advisory.",
 };
 
 export default function RootLayout({

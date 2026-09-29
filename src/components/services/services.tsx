@@ -1,77 +1,84 @@
 "use client";
-import { Image } from "antd";
+import Image from "next/image";
+import { useState } from "react";
+import { services } from "@/data/site";
+import Reveal from "@/components/ui/reveal";
+
+function ServiceCard({ s, i }: { s: (typeof services)[number]; i: number }) {
+    const [flipped, setFlipped] = useState(false);
+    return (
+        <div
+            className="flip-card relative h-[28rem] w-full"
+            data-flipped={flipped}
+            onMouseLeave={() => setFlipped(false)}
+        >
+            <div className="flip-inner relative h-full w-full">
+                {/* Front: image + title. The whole face is the toggle button. */}
+                <button
+                    type="button"
+                    onClick={() => setFlipped((f) => !f)}
+                    aria-pressed={flipped}
+                    aria-label={`${s.title}. Show details`}
+                    className="flip-face absolute inset-0 overflow-hidden rounded-2xl text-left shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-amber"
+                >
+                    <Image
+                        src={s.image}
+                        alt=""
+                        fill
+                        sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+                        className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-ink via-brand-ink/40 to-transparent" />
+                    <span className="absolute left-5 top-5 font-mono text-sm tracking-widest text-brand-amber">
+                        {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                        <h3 className="text-2xl font-bold leading-snug">{s.title}</h3>
+                        <p className="mt-2 text-sm text-white/70">Tap or hover for details ↻</p>
+                    </div>
+                </button>
+
+                {/* Back: description */}
+                <div
+                    className="flip-face flip-back absolute inset-0 flex flex-col rounded-2xl bg-gradient-to-br from-brand-navy to-brand-ink p-6 text-white shadow-lg ring-1 ring-brand-amber/60"
+                    aria-hidden={!flipped}
+                >
+                    <h3 className="mb-3 text-xl font-bold text-brand-amber">{s.title}</h3>
+                    <p className="flex-1 overflow-y-auto pr-1 text-sm leading-relaxed text-white/90 [scrollbar-width:thin]">
+                        {s.description}
+                    </p>
+                    <a
+                        href="#contact"
+                        onClick={() => window.dispatchEvent(new CustomEvent("select-service", { detail: s.slug }))}
+                        className="mt-4 self-start rounded-full bg-brand-amber px-5 py-2 text-sm font-semibold text-brand-ink transition hover:brightness-110"
+                    >
+                        Enquire →
+                    </a>
+                </div>
+            </div>
+        </div>
+    );
+}
 
 function Services() {
     return (
-        <div className="text-black px-4 md:px-16 lg:px-24 py-12">
-            <p className="font-bold text-2xl md:text-4xl mb-12 text-center text-gray-800">
-                Our Services
-            </p>
-            <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 text-center">
-                {/* Service Item */}
-                <div className=" md:flex-row items-center bg-white shadow-lg rounded-lg overflow-hidden transition-transform hover:scale-105">
-                    <Image preview={false}
-                        src="./loans.jpg"
-                        width="100%"
-                        className="w-full md:w-auto rounded-md object-cover"
-                        alt="Business Loans"
-                    />
-                    <div className="p-4">
-                        <p className="font-bold text-lg md:text-xl mb-2 text-gray-900">
-                            Business Loans
-                        </p>
-                        <span className="text-gray-600">
-                        PANGWA offers tailored loans to meet the working capital and expansion needs of Micro-traders and Small Businesses.
-
-                        </span>
-                    </div>
-                </div>
-                {/* Service Item */}
-                <div className=" md:flex-row items-center bg-white shadow-lg rounded-lg overflow-hidden transition-transform hover:scale-105">
-                    <Image preview={false}
-                        src="./port6.jpg"
-                        width="100%"
-                        
-                        className="w-full md:w-auto rounded-md object-cover"
-                        alt="Trade Finance Solutions"
-                    />
-                    <div className="p-4">
-                        <p className="font-bold text-lg md:text-xl mb-2 text-gray-900">
-                            Trade Finance Solutions
-                        </p>
-                        <span className="text-gray-600">
-                            PANGWA assists businesses in structuring and funding trade finance transactions.
-                        </span>
-                    </div>
-                </div>
-
-
-
-                {/* Service Item */}
-                <div className=" md:flex-row items-center bg-white shadow-lg rounded-lg overflow-hidden transition-transform hover:scale-105">
-                    <Image preview={false}
-                        src="./consultancy.jpg"
-                        width="100%"
-                        className="w-full md:w-auto rounded-md object-cover"
-                        alt="Business Advisory"
-                    />
-                    <div className="p-4">
-                        <p className="font-bold text-lg md:text-xl mb-2 text-gray-900">
-                            Business Advisory & Consultancy
-                        </p>
-                        <span className="text-gray-600">
-                            Our team of experienced consultants provides advice on business model & strategy, financial management, credit and risk management, capital raising strategies, and growth planning.
-                        </span>
-                    </div>
-                </div>
-
-
-
-
-
-
+        <section id="services" className="bg-gray-50 px-4 py-20 md:px-12 lg:px-24">
+            <Reveal className="mb-12 text-center">
+                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-brand-amber">What we do</p>
+                <h2 className="mt-2 text-3xl font-bold text-brand-navy md:text-4xl">Our Services</h2>
+            </Reveal>
+            <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-6">
+                {services.map((s, i) => (
+                    <Reveal
+                        key={s.slug}
+                        delay={(i % 3) * 100}
+                        className={`lg:col-span-2 ${i === 3 ? "lg:col-start-2" : ""}`}
+                    >
+                        <ServiceCard s={s} i={i} />
+                    </Reveal>
+                ))}
             </div>
-        </div>
+        </section>
     );
 }
 

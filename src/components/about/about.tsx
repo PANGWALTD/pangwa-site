@@ -1,41 +1,38 @@
-"use client"
-import { Image } from "antd";
+"use client";
+import Image from "next/image";
+import Reveal from "@/components/ui/reveal";
+
+const items = [
+    { img: "/mission.png", title: "Our Mission", body: "To empower businesses by providing innovative financial solutions and expert advisory." },
+    { img: "/story1.png", title: "Our Story", body: "PANGWA was founded with a vision to address the financial gaps faced by micro and small businesses in East Africa." },
+    { img: "/values2.png", title: "Our Values", list: ["Impact-Driven", "Customer-Centricity", "Collaboration"] },
+];
+
 function AboutUs() {
-    return (<div className="text-black">
-        <p className="font-bold text-center text-4xl">About Us</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-6 bg-gray-50 rounded-lg text-black">
-            {/* Mission */}
-            <div className="shadow-md p-6 flex flex-col items-center text-center bg-white rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
-                <Image preview={false} src="./mission.png" width={90} alt=""  className="pt-2"/>
-                <p className="font-semibold text-lg mt-7 text-gray-800">Our Mission</p>
-                <span className="mt-2 text-gray-600 text-base">
-                    To empower businesses by providing innovative financial solutions and expert advisory.
-                </span>
+    return (
+        <section id="about-us" className="bg-white px-4 py-20 md:px-12 lg:px-24">
+            <Reveal className="mb-12 text-center">
+                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-brand-amber">Who we are</p>
+                <h2 className="mt-2 text-3xl font-bold text-brand-navy md:text-4xl">About Us</h2>
+            </Reveal>
+            <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {items.map((it, i) => (
+                    <Reveal key={it.title} delay={i * 100}>
+                        <div className="flex h-full flex-col items-center rounded-2xl bg-gray-50 p-8 text-center transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                            <Image src={it.img} alt="" width={80} height={80} className="h-20 w-20 object-contain" />
+                            <h3 className="mt-6 text-lg font-semibold text-gray-800">{it.title}</h3>
+                            {it.body && <p className="mt-2 text-gray-600">{it.body}</p>}
+                            {it.list && (
+                                <ul className="mt-2 text-gray-600">
+                                    {it.list.map((v) => <li key={v}>{v}</li>)}
+                                </ul>
+                            )}
+                        </div>
+                    </Reveal>
+                ))}
             </div>
-
-            {/* Story */}
-            <div className="shadow-md p-6 flex flex-col items-center text-center bg-white rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
-                <Image preview={false} src="./story1.png" width={90} alt="" />
-                <p className="font-semibold text-lg mt-4 text-gray-800">Our Story</p>
-                <span className="mt-2 text-gray-600 text-base">
-                    PANGWA was founded with a vision to address the financial gaps faced by micro and small businesses in East Africa.
-                </span>
-            </div>
-
-            {/* Values */}
-            <div className="shadow-md p-6 flex flex-col items-center text-center bg-white rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
-                <Image preview={false} src="./values2.png" width={80}alt="" />
-                <p className="font-semibold text-lg mt-6 text-gray-800">Our Values</p>
-                <ol className="mt-2 text-gray-600 text-base">
-                    <li className="">Impact-Driven</li>
-                    <li className="">Customer-Centricity</li>
-                    <li className="">Collaboration</li>
-                </ol>
-            </div>
-        </div>
-
-
-    </div>);
+        </section>
+    );
 }
 
 export default AboutUs;

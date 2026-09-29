@@ -5,7 +5,6 @@ import { sendTelegramNotification } from "@/helpers/upload";
 export async function POST(req: Request) {
     try {
         const formData = await req.formData();
-        console.log("FormData", formData);
         // Extract fields from formData
         const fullName = formData.get("fullName") as string;
         const email = formData.get("email") as string;
@@ -13,17 +12,7 @@ export async function POST(req: Request) {
         const inquiryType = formData.get("inquiryType") as string;
         const message = formData.get("message") as string;
 
-        // Extract file if exists
-        const file = formData.get("file") as File | null;
-        if (file) {
-            // Upload file to cloud storage (e.g., AWS S3, etc.)
-            const arrayBuffer = await file.arrayBuffer();
-            const fileBase64 = await arrayBufferToBase64(arrayBuffer);
-            const result = await addMessage(fullName, email, businessName, inquiryType, message, fileBase64);
-            return NextResponse.json({ status: 200, data: result });
-        }
         const result = await addMessage(fullName, email, businessName, inquiryType, message);
-        console.log("about to call telegram");
         await sendTelegramNotification(`New message from ${fullName} (${email})\nBusiness Name: ${businessName}\nInquiry Type: ${inquiryType}\nMessage: ${message}`);
         return NextResponse.json({
             status: 200,
@@ -41,9 +30,6 @@ export async function POST(req: Request) {
             }
         );
     }
-}
-async function arrayBufferToBase64(buffer: ArrayBuffer): Promise<string> {
-    return Buffer.from(buffer).toString('base64');
 }
 export async function GET() {
     try {
