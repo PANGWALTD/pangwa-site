@@ -45,8 +45,8 @@ export const services = [
 
 // TODO: replace placeholder figures with real ones before launch.
 export const metrics = [
-    { value: 25, prefix: "$", suffix: "M+", label: "Funding Facilitated" },
-    { value: 40, prefix: "", suffix: "+", label: "Businesses Supported" },
+    { value: 40, prefix: "$", suffix: "Mn+", label: "Funding Facilitated" },
+    { value: 50, prefix: "", suffix: "+", label: "Businesses Supported" },
     { value: 30, prefix: "", suffix: "+", label: "Banks And Partner Institutions For Bank Instruments" },
 ];
 
