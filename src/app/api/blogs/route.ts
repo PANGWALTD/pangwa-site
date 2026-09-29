@@ -14,17 +14,14 @@ const schema = z.object({
 
 export async function POST(req: Request) {
     try {
-        const data = req.json();
-        const parsed = schema.safeParse(data);
-        if (!parsed.success) {
-            return NextResponse.json({
-                error: parsed.error.errors,
-            },
-                {
-                    status: 400,
-                });
-        }
-        const { type, title, content, imageUrl, videoUrl } = parsed.data;
+        const data = await req.formData();
+        
+        const type = data.get("type") as string;
+        const title = data.get("title") as string;
+        const content = data.get("content") as string;
+        const imageUrl = data.get("imageUrl") as string;
+        const videoUrl = data.get("videoUrl") as string;
+
         const result = await addBlog(type, title, content, imageUrl, videoUrl);
         return NextResponse.json({
             status: 200,

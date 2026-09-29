@@ -14,39 +14,39 @@ function WhyChooseUs() {
                     <span className="block text-gray-700">
                         <ul className="space-y-6 list-none">
                             <li className="flex items-center ">
-                                <div>
-                                    <Image src="./image micro.png" preview={false} width={40} height={40} />
+                                <div className="">
+                                    <FaCheckCircle className="text-2xl" />
 
                                 </div>
-                                <span className="">
+                                <span className="ml-2">
                                     <strong>Apply or Register:</strong> Submit a loan application or register for advisory or consultancy service.
                                 </span>
                             </li>
                             <li className="flex items-center">
                                 <div>
-                                    <Image src="./image micro.png" preview={false} width={40} height={40} />
+                                    <FaHandshake className="text-2xl" />
 
                                 </div>
-                                <span>
+                                <span className="ml-2">
                                     <strong>Assessment & Matchmaking:</strong> We assess your needs and match you with the right financial solution, advisory service & consultancy service.
                                 </span>
                             </li>
                             <li className="flex items-center">
                                 <div>
-                                    <Image src="./image micro.png" preview={false} width={40} height={40} />
+                                    <FaChartLine className="text-2xl" />
 
                                 </div>
-                                <span>
+                                <span className="ml-2">
                                     <strong>Engage & Grow:</strong> Access funds or expert advice to help grow your business.
                                 </span>
                             </li>
                             <li className="flex items-center">
                                 <div className="">
-                                    <Image src="./image micro.png" preview={false} width={40} height={40} />
+                                    <FaUsers className="text-2xl" />
 
                                 </div>
 
-                                <span>
+                                <span className="ml-2">
                                     <strong>Ongoing Support:</strong> Continue benefiting from our flexible repayment terms, consultancy services, and follow-up support.
                                 </span>
                             </li>
@@ -55,45 +55,67 @@ function WhyChooseUs() {
                 </div>
 
                 {/* Why Choose PANGWA Section */}
-                <div>
-                    <p className="text-3xl font-semibold text-center mb-6 text-gray-800 md:text-4xl">
+                <div className="">
+                    <p className="text-3xl ml-2 text-center font-semibold mb-6 text-gray-800 md:text-4xl pt-2">
                         Why Choose PANGWA?
                     </p>
+                    {/* <div className="flex justify-start ml-[25%] items-center sm:mb-4 mb-2">
+
+                        <div className="sm:w-24">
+                        <Image src="./image micro.png" preview={false} />
+
+                        </div>
+
+                        
+                    </div> */}
+
                     <span className="block text-gray-700 md:mb-10">
                         <ul className="space-y-6 list-none">
                             <li className="flex items-center">
                                 <div className="">
-                                    <Image src="./image micro.png" preview={false} width={40} height={40} />
+                                    <div>
+                                        <Image src="./image micro.png" preview={false} width={40} height={40} />
+
+                                    </div>
 
                                 </div>
-                                <span>
+                                <span className="ml-2">
                                     Expert financial and business advisory services tailored to your business needs.
                                 </span>
                             </li>
                             <li className="flex items-center">
                                 <div className="">
-                                    <Image src="./image micro.png" preview={false} width={40} height={40} />
+                                    <div>
+                                        <Image src="./image micro.png" preview={false} width={40} height={40} />
+
+                                    </div>
 
                                 </div>
-                                <span className="">
+                                <span className="ml-2">
                                     Access to a wide network of financial partners and industry experts.
                                 </span>
                             </li>
                             <li className="flex items-center">
                                 <div className="">
-                                    <Image src="./image micro.png" preview={false} width={40} height={40} />
+                                    <div>
+                                        <Image src="./image micro.png" preview={false} width={40} height={40} />
+
+                                    </div>
 
                                 </div>
-                                <span>
+                                <span className="ml-2">
                                     Flexible and customized financial solutions that support business growth.
                                 </span>
                             </li>
                             <li className="flex items-center ">
                                 <div className="">
-                                    <Image src="./image micro.png" preview={false} width={40} height={40} />
+                                    <div>
+                                        <Image src="./image micro.png" preview={false} width={40} height={40} />
+
+                                    </div>
 
                                 </div>
-                                <span className="">
+                                <span className="ml-2">
                                     Dedicated ongoing support and consultancy throughout your business journey.
                                 </span>
                             </li>

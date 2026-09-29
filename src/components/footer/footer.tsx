@@ -5,7 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import { toast } from "sonner";
-
+import { Image } from "antd";
 function Footer() {
     const [formData, setFormData] = useState({
         fullName: "",
@@ -115,21 +115,31 @@ function Footer() {
                     </div>
                     <div className="flex items-center mb-4">
                         <FaEnvelope className="text-white mr-3" />
-                        <p>pangwacapitalemail@gmail.com</p>
+                        <p>info@pangwacapital.com</p>
                     </div>
                     <div className="flex items-center space-x-4">
-                        <Link href="">
-                            <FaFacebookF className="text-white cursor-pointer hover:text-gray-400" />
+                        <Link href="https://www.facebook.com/people/Pangwa-Capital-Limited/61566604456012/" target="_blank" rel="noopener noreferrer">
+                            <Image src="./Facebook_Icon.jpeg" preview={false} width={40} height={40} className="rounded-md" />
                         </Link>
-                        <Link href="https://x.com/PangwaCapital">
-                            <FaXTwitter className="text-white cursor-pointer hover:text-gray-400" />
+                        <Link href="https://x.com/PangwaCapital" target="_blank" rel="noopener noreferrer">
+                            <Image src="./X_Icon.jpeg" preview={false} width={40} height={40} className="rounded-md" />
                         </Link>
-                        <Link href="">
-                            <FaLinkedin className="text-white cursor-pointer hover:text-gray-400" />
+                        <Link href="https://www.linkedin.com/company/pangwa-capital-limited/" target="_blank" rel="noopener noreferrer">
+                            <Image src="./LinkedIn_Icon.png" preview={false} width={40} height={40} className="rounded-md" />
                         </Link>
-                        <Link href="">
+                        {/* <Link href="">
                             <FaInstagram className="text-white cursor-pointer hover:text-gray-400" />
-                        </Link>
+                        </Link> */}
+                    </div>
+                    <div className="mb-6 mt-6">
+                        <h4 className="text-xl font-bold text-white mb-2">Download Loan Application Form</h4>
+                        <a
+                            href="./PANGWA CAPITAL LIMITED - BUSINESS LOAN APPLICATION FORM.doc"
+                            download
+                            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+                        >
+                            Download Application Form
+                        </a>
                     </div>
                 </div>
 
@@ -182,7 +192,7 @@ function Footer() {
                                 <div className="mb-6">
                                     <h4 className="text-xl font-bold text-white mb-2">Download Form</h4>
                                     <a
-                                        href="./PANGWA CAPITAL LIMITED - BUSINESS LOAN APPLICATION, AGREEMENT, AND PERSONAL GUARANTEE FORMS.pdf"
+                                        href="./PANGWA CAPITAL LIMITED - BUSINESS LOAN APPLICATION FORM.doc"
                                         download
                                         className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
                                     >
@@ -230,7 +240,13 @@ function Footer() {
                 <p className="text-center text-gray-500 pb-4">
                     Copyright © 2024 Pangwa Capital. All Rights Reserved.
                 </p>
-                <Link href="https://web.whatsapp.com/send/?phone=254104686041&text" target="_blank" rel="noopener noreferrer">
+                {/* <Link href="https://web.whatsapp.com/send/?phone=254104686041&text" target="_blank" rel="noopener noreferrer">
+                    <div className="flex space-x-2 md:w-56 bg-green-500 text-white rounded-lg px-4 py-2 justify-center items-center hover:bg-green-600 transition duration-300 ease-in-out cursor-pointer">
+                        <FaWhatsapp className="text-xl" />
+                        <p className="text-sm">Chat on Whatsapp</p>
+                    </div>
+                </Link> */}
+                <Link href="https://wa.me/254104686041?text=Hi%20Pangwa%20Capital%2C%20I'm%20interested%20in%20learning%20more%20about%20your%20services!%20Could%20you%20please%20provide%20more%20information?" target="_blank" rel="noopener noreferrer">
                     <div className="flex space-x-2 md:w-56 bg-green-500 text-white rounded-lg px-4 py-2 justify-center items-center hover:bg-green-600 transition duration-300 ease-in-out cursor-pointer">
                         <FaWhatsapp className="text-xl" />
                         <p className="text-sm">Chat on Whatsapp</p>
