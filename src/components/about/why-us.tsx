@@ -27,8 +27,8 @@ function WhyChooseUs() {
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                     {steps.map((s, i) => (
                         <Reveal key={s.title} delay={i * 100}>
-                            <div className="h-full rounded-2xl bg-white p-6 shadow-sm">
-                                <s.icon className="text-3xl text-brand-amber" aria-hidden />
+                            <div className="h-full rounded-2xl bg-white p-6 text-center shadow-sm">
+                                <s.icon className="mx-auto text-3xl text-brand-amber" aria-hidden />
                                 <h3 className="mt-4 font-bold text-brand-navy">{s.title}</h3>
                                 <p className="mt-2 text-sm text-gray-600">{s.body}</p>
                             </div>

@@ -4,7 +4,7 @@ import Reveal from "@/components/ui/reveal";
 
 const items = [
     { img: "/mission.png", title: "Our Mission", body: "To empower businesses by providing innovative financial solutions and expert advisory." },
-    { img: "/story1.png", title: "Our Story", body: "PANGWA was founded with a vision to address the financial gaps faced by micro and small businesses in East Africa." },
+    { img: "/story1.png", title: "Our Story", body: "Pangwa Capital Limited was founded with a vision to address the financial gaps faced by businesses across Africa — connecting them to capital markets, lenders and international bank instruments that fuel sustainable growth." },
     { img: "/values2.png", title: "Our Values", list: ["Impact-Driven", "Customer-Centricity", "Collaboration"] },
 ];
 

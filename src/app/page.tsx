@@ -5,15 +5,17 @@ import Services from "@/components/services/services";
 import WhyChooseUs from "@/components/about/why-us";
 import AboutUs from "@/components/about/about";
 import Testimonials from "@/components/about/testimonials";
+import Awards from "@/components/about/awards";
 
 export default function Home() {
     return (
-        <main>
+        <main className="pt-16">
             <div id="home"><Body /></div>
             <Metrics />
             <Services />
             <AboutUs />
             <Testimonials />
+            <Awards />
             <WhyChooseUs />
             <div id="contact"><Footer /></div>
         </main>
