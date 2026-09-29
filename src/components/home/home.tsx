@@ -1,129 +1,116 @@
 "use client";
-import { Image, Carousel } from "antd";
-import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import { useState } from "react";
-import HomePage from "./homepage";
+import Image from "next/image";
+import Link from "next/link";
+import { useCallback, useEffect, useState } from "react";
+import { CALENDLY_URL, services } from "@/data/site";
+
+const INTERVAL = 6000;
 
 function Home() {
-    // State to track the current slide index (for text animations)
-    const [currentSlide, setCurrentSlide] = useState(0);
+    const [index, setIndex] = useState(0);
+    const [paused, setPaused] = useState(false);
+    const next = useCallback(() => setIndex((i) => (i + 1) % services.length), []);
+    const prev = () => setIndex((i) => (i - 1 + services.length) % services.length);
 
-    // Custom Previous Arrow
-    const PrevArrow = ({ className, onClick }: { className?: string; onClick?: () => void }) => (
-        <LeftOutlined
-            className={`${className} absolute top-1/2 left-4 transform -translate-y-1/2 text-white text-3xl cursor-pointer z-10`}
-            onClick={onClick}
-        />
-    );
+    useEffect(() => {
+        if (paused) return;
+        const t = setTimeout(next, INTERVAL);
+        return () => clearTimeout(t);
+    }, [index, paused, next]);
 
-    // Custom Next Arrow
-    const NextArrow = ({ className, onClick }: { className?: string; onClick?: () => void }) => (
-        <RightOutlined
-            className={`${className} absolute top-1/2 right-4 transform -translate-y-1/2 text-white text-3xl cursor-pointer z-10`}
-            onClick={onClick}
-        />
-    );
-
-    // Animation class
-    const animationClass = (index: number) =>
-        currentSlide === index ? "animate-fadeInUp" : "opacity-0";
+    useEffect(() => {
+        const onVis = () => setPaused(document.hidden);
+        document.addEventListener("visibilitychange", onVis);
+        return () => document.removeEventListener("visibilitychange", onVis);
+    }, []);
 
     return (
-        <div>
-            <Carousel
-                autoplay
-                arrows
-                prevArrow={<PrevArrow className={undefined} onClick={undefined} />}
-                nextArrow={<NextArrow className={undefined} onClick={undefined} />}
-                beforeChange={(current, next) => setCurrentSlide(next)} // Track slide change
-            >
-                <div className="relative 2xl:min-h-[900px] min-h-[400px]  md:h-auto h-[60vh] max-h-[600px]">
-                    <HomePage />
-                    {/* <div
-                        className={`absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-20 text-white transition-all duration-500 ease-in-out ${animationClass(
-                            0
-                        )}`}
-                    >
-                    </div> */}
-                </div>
-
-                <div className="relative min-h-[500px] 2xl:min-h-[900px] md:min-h-[700px] h-[60vh] max-h-[700px]">
+        <section
+            aria-roledescription="carousel"
+            aria-label="Our services"
+            className="relative h-[85vh] min-h-[520px] max-h-[820px] w-full overflow-hidden bg-brand-ink text-white"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+            onFocus={() => setPaused(true)}
+            onBlur={() => setPaused(false)}
+        >
+            {services.map((s, i) => (
+                <div
+                    key={s.slug}
+                    aria-hidden={i !== index}
+                    className={`absolute inset-0 transition-opacity duration-1000 ${i === index ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+                >
                     <Image
-                        preview={false}
-                        width="100%"
-                        src="./colleagues-team.jpg"
-                        alt="Image 1"
-                        style={{ objectFit: "cover" }}
-                        className="min-h-[500px] md:min-h-[700px]  2xl:min-h-[900px] md:h-auto h-[60vh] max-h-[600px]"
+                        src={s.image}
+                        alt=""
+                        fill
+                        sizes="100vw"
+                        priority={i === 0}
+                        className={`object-cover ${i === index ? "kenburns" : ""}`}
                     />
-                    <div
-                        className={`absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white transition-all duration-500 ease-in-out ${animationClass(
-                            1
-                        )}`} 
-                    >
-                        <h1 className="md:text-6xl font-bold mb-2 text-4xl text-center">Business Loans</h1>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/90 via-brand-ink/60 to-brand-ink/20" />
                 </div>
+            ))}
 
-                <div className="relative md:h-auto 2xl:min-h-[900px] min-h-[500px] h-[60vh] max-h-[600px] ">
-                    <Image
-                        preview={false}
-                        width="100%"
-                        src="./port1.jpg"
-                        alt="Image 2"
-                        style={{ objectFit: "cover" }}
-                        className="min-h-[500px] 2xl:min-h-[900px] md:h-auto h-[60vh] max-h-[600px]"
-                    />
-                    <div
-                        className={`absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white transition-all duration-500 ease-in-out ${animationClass(
-                            2
-                        )}`} 
-                    >
-                        <h1 className="md:text-6xl text-4xl font-bold mb-2 text-center">
-                            Trade Finance Solutions
-                        </h1>
-                    </div>
+            <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-6 pt-16 md:px-12">
+                <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-brand-amber">
+                    Pangwa Capital
+                </p>
+                <div aria-live="polite" key={index} className="max-w-3xl animate-[fadeUp_700ms_ease_both]">
+                    <h1 className="text-4xl font-bold leading-tight text-balance md:text-6xl">
+                        {services[index].title}
+                    </h1>
+                    <p className="mt-5 max-w-xl text-lg text-white/85 md:text-xl">
+                        {services[index].short}
+                    </p>
                 </div>
-
-                <div className="relative 2xl:min-h-[900px]  md:h-auto min-h-[500px] h-[60vh] max-h-[600px]">
-                    <Image
-                        preview={false}
-                        width="100%"
-                        src="./team-business-people-collaborating.jpg"
-                        alt="Image 3"
-                        style={{ objectFit: "cover" }}
-                        className=" min-h-[500px] 2xl:min-h-[900px] md:h-auto h-[60vh] max-h-[600px] "
-                    />
-                    <div
-                        className={`absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white transition-all duration-500 ease-in-out ${animationClass(
-                            3
-                        )}`} 
+                <div className="mt-8 flex flex-wrap gap-4">
+                    <Link
+                        href="/#services"
+                        className="rounded-full bg-brand-amber px-7 py-3 font-semibold text-brand-ink transition hover:brightness-110"
                     >
-                        <h1 className="md:text-6xl text-4xl font-bold mb-2 text-center mt-5">
-                            Business Advisory & Consultancy
-                        </h1>
-                    </div>
+                        Explore services
+                    </Link>
+                    <a
+                        href={CALENDLY_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-full border border-white/60 px-7 py-3 font-semibold transition hover:bg-white/10"
+                    >
+                        Book a consultation
+                    </a>
                 </div>
-            </Carousel>
+            </div>
 
-            {/* Additional CSS for text animation */}
-            <style jsx>{`
-                @keyframes fadeInUp {
-                    0% {
-                        opacity: 0;
-                        transform: translateY(30px);
-                    }
-                    100% {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-
-                .animate-fadeInUp {
-                    animation: fadeInUp 1s ease forwards;
-                }
-            `}</style>
-        </div>
+            <div className="absolute inset-x-0 bottom-6 z-10 mx-auto flex max-w-6xl items-center justify-between px-6 md:px-12">
+                <div className="flex gap-2">
+                    {services.map((s, i) => (
+                        <button
+                            key={s.slug}
+                            onClick={() => setIndex(i)}
+                            aria-label={`Show ${s.title}`}
+                            aria-current={i === index}
+                            className="relative h-1.5 w-10 overflow-hidden rounded-full bg-white/30 md:w-14"
+                        >
+                            {i === index && (
+                                <span
+                                    key={`${index}-${paused}`}
+                                    className="absolute inset-0 origin-left rounded-full bg-brand-amber"
+                                    style={{
+                                        animation: paused ? "none" : `progress ${INTERVAL}ms linear forwards`,
+                                        transform: paused ? "scaleX(1)" : undefined,
+                                    }}
+                                />
+                            )}
+                        </button>
+                    ))}
+                </div>
+                <div className="flex gap-2">
+                    <button onClick={prev} aria-label="Previous service" className="grid h-10 w-10 place-items-center rounded-full border border-white/40 transition hover:bg-white/10">‹</button>
+                    <button onClick={next} aria-label="Next service" className="grid h-10 w-10 place-items-center rounded-full border border-white/40 transition hover:bg-white/10">›</button>
+                </div>
+            </div>
+        </section>
     );
 }
 
