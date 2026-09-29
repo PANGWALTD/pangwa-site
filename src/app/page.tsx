@@ -9,7 +9,7 @@ import Awards from "@/components/about/awards";
 
 export default function Home() {
     return (
-        <main>
+        <main className="pt-16">
             <div id="home"><Body /></div>
             <Metrics />
             <Services />
