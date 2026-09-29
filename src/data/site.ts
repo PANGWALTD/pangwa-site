@@ -102,17 +102,17 @@ export const caseStudies = [
     },
 ];
 
-// Source: wealthandfinance.digital winner pages. TODO: add the exact award category for each.
+// Source: wealthandfinance.digital winner pages.
 export const awards = [
     {
         year: 2026,
-        title: "Winner",
+        title: "Investment Excellence Awards",
         publisher: "Wealth & Finance International",
         url: "https://wealthandfinance.digital/winners/pangwa-capital-limited-2/",
     },
     {
         year: 2025,
-        title: "Winner",
+        title: "Management Consulting Awards",
         publisher: "Wealth & Finance International",
         url: "https://wealthandfinance.digital/winners/pangwa-capital-limited/",
     },

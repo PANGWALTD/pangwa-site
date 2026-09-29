@@ -22,7 +22,7 @@ function Awards() {
                             <FaAward className="text-5xl text-brand-amber transition-transform duration-300 group-hover:scale-110" aria-hidden />
                             <p className="mt-4 text-5xl font-bold tabular-nums">{a.year}</p>
                             <p className="mt-2 text-lg font-semibold text-brand-amber">{a.title}</p>
-                            <p className="mt-1 text-sm text-white/70">{a.publisher}</p>
+                            <p className="mt-1 text-sm text-white/70">Winner · {a.publisher}</p>
                         </a>
                     </Reveal>
                 ))}
