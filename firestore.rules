@@ -1,0 +1,20 @@
+rules_version = '2';
+
+// The site reads/writes Firestore from its API routes with the public client SDK
+// (no auth), so these rules cannot tell admins from visitors. Scope is limited to
+// exactly what the site does. Everything else, including `admin`, is denied.
+// TODO: move messages/admin reads behind the Admin SDK, then close `messages` read.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /blogs/{id} {
+      allow read, create: if true;
+    }
+
+    match /messages/{id} {
+      allow read, create: if true;
+      // admin "mark as done" may change only the status field
+      allow update: if request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status']);
+    }
+  }
+}
