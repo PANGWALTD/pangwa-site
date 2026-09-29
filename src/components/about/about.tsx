@@ -12,7 +12,7 @@ function AboutUs() {
     return (
         <section id="about-us" className="bg-white px-4 py-20 md:px-12 lg:px-24">
             <Reveal className="mb-12 text-center">
-                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-brand-amber">Who we are</p>
+                <p className="text-base font-semibold uppercase tracking-[0.25em] text-brand-amber md:text-2xl">Who we are</p>
                 <h2 className="mt-2 text-3xl font-bold text-brand-navy md:text-4xl">About Us</h2>
             </Reveal>
             <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
