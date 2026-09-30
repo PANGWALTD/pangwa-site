@@ -2,13 +2,17 @@ rules_version = '2';
 
 // The site reads/writes Firestore from its API routes with the public client SDK
 // (no auth), so these rules cannot tell admins from visitors. Scope is limited to
-// exactly what the site does. Everything else, including `admin`, is denied.
-// TODO: move messages/admin reads behind the Admin SDK, then close `messages` read.
+// exactly what the site does. Everything else is denied.
+// TODO: move messages/admin reads behind the Admin SDK, then close them.
 service cloud.firestore {
   match /databases/{database}/documents {
 
     match /blogs/{id} {
       allow read, create: if true;
+    }
+
+    match /admin/{id} {
+      allow read: if true;
     }
 
     match /messages/{id} {
