@@ -49,7 +49,7 @@ function Page() {
             try {
                 const response = await axios.get("/api/messages");
                 if (response.status === 200) {
-                    setMessages(response.data.data);  // Directly set response data
+                    setMessages(response.data.data ?? []);
                     setLoading(false);
                 }
             } catch (error) {

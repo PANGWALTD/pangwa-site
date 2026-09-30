@@ -21,7 +21,7 @@ function Blog() {
     useEffect(() => {
         async function getblogs() {
             const response = await axios.get("/api/blogs");
-            setBlogData(response.data.data);
+            setBlogData(response.data.data ?? []);
         }
         getblogs();
     }, []);
@@ -94,11 +94,11 @@ function Blog() {
             {selectedBlog && (
                 <Modal
                     title={selectedBlog.title}
-                    visible={isModalVisible}
+                    open={isModalVisible}
                     onCancel={closeModal}
                     footer={null}
                     width={800}
-                    bodyStyle={{ padding: "20px", maxHeight: "80vh", overflowY: "auto" }}
+                    styles={{ body: { padding: "20px", maxHeight: "80vh", overflowY: "auto" } }}
                 >
                     <div className="modal-content">
                         {selectedBlog.imageUrl && (
